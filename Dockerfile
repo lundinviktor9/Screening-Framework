@@ -19,7 +19,7 @@ ARG API_BASE=""
 ENV MAPBOX_TOKEN=$MAPBOX_TOKEN \
     API_BASE=$API_BASE
 
-COPY package.json package-lock.json ./
+COPY package.json package-lock.json .npmrc ./
 RUN npm ci
 COPY . .
 RUN npm run build      # -> /app/dist (bundle.<hash>.js + index.html)
