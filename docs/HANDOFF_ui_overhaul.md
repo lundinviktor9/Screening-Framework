@@ -1,6 +1,6 @@
 # App Platform & Whole-App UI Overhaul — Build Spec (Handoff #2, 2026-06-11)
 
-Target repo: `lundinviktor9/Screening-Framework-v1` (local: `C:\Users\vilu\Dokument\Screening-Framework-v1`).
+Target repo: `lundinviktor9/Screening-Framework` (renamed from -v1; local: `C:\Screening Framework`).
 Prerequisite: Handoff #1 (`deal-showcase-build/HANDOFF.md`) tasks verified landed — see Phase 0.
 Execute one task per session. Show actual outputs against acceptance criteria, never claims.
 Update TASKS.md at session end.
@@ -127,6 +127,31 @@ hover Card (score, tier, key metrics), deal pins distinct shape.
 **2.9 Data Entry / Data Sources / Add Market.** shadcn Form (react-hook-form + zod
 validation), proper field errors, Save with toast confirmation; sources list as DataTable
 with freshness badges.
+
+**2.10 Results & Deal Profile content fidelity (added 2026-06-11 after first deployed test).**
+Viktor's reference layouts are the two slide images on file (River Park overview; Key
+Assumptions + Financial Returns two-table view). Requirements:
+
+- **Financial Overview = two purple-banded tables side by side.** Left, "Key Assumptions"
+  with three sub-banded groups — Entry (Acquisition date, Purchase Price (before costs),
+  Yield (after costs)), Exit (Exit date / "{n} year hold", Exit yield, Exit price (before
+  costs)), Financing (LTV, All-in interest rate, Arrangement fee). Right, "Financial
+  Returns" with two sub-banded groups — Unlevered Returns and Levered Returns, Post Fees,
+  each showing IRR, EM, CoC, Profit, Equity (from `returns.cfo` unlevered/levered blocks).
+- **Net Investor IRR is the baseline headline metric.** Everywhere returns are summarised
+  (metric cards, deal list, run history rows, PPTX) it renders first and visually dominant;
+  other metrics are secondary.
+- **Deal Profile populates from the IM showcase block** (Handoff #1 Tasks 2–4). Verify on
+  the DEPLOYED instance with a fresh IM upload: headline, KPI strip, rationale bullets,
+  business-plan bullets, map pin, asset photo all populated. Add a "Regenerate from IM"
+  button calling the regenerate endpoint. Deals seeded from the pre-showcase `deals.json`
+  show an explicit "No showcase yet — re-ingest the IM" state, not silent emptiness.
+- **PPTX export mirrors both layouts** exactly (same data, same hierarchy, Net Investor IRR
+  headline on the financial slide).
+
+**Accept (2.10):** fresh IM upload on the deployed app → profile matches the River Park
+reference; financial view matches the two-table reference with Net Investor IRR prominent;
+exported PPTX shows the same two slides.
 
 **Accept per page:** screenshot side-by-side with old version; no unstyled native controls;
 empty + loading + error states all present; zero Tailwind-default-blue remnants (all actions
