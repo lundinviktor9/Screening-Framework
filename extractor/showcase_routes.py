@@ -180,8 +180,13 @@ def make_showcase_router(store: DealStore) -> APIRouter:
 
         try:
             # Read PDF and extract showcase (without merge protection)
-            with open(pdf_path, "rb") as f:
-                pdf_text = _extract_pdf_text(pdf_path)
+            pdf_text = _extract_pdf_text(pdf_path)
+            if not pdf_text.strip():
+                raise HTTPException(
+                    status_code=422,
+                    detail="No text could be extracted from the stored PDF — "
+                           "refusing to regenerate (would overwrite the showcase with nulls).",
+                )
 
             # Call showcase extraction without passing existing
             showcase = extract_showcase(pdf_text, deal_id)
@@ -203,6 +208,8 @@ def make_showcase_router(store: DealStore) -> APIRouter:
 
             return showcase
 
+        except HTTPException:
+            raise
         except Exception as e:
             raise HTTPException(status_code=400, detail=f"Regeneration failed: {e}")
 
@@ -210,14 +217,15 @@ def make_showcase_router(store: DealStore) -> APIRouter:
 
 
 def _extract_pdf_text(pdf_path: Path) -> str:
-    """Extract raw text from PDF. Simple fallback — actual impl depends on PDF lib."""
-    try:
-        import pypdf
+    """Extract raw text from PDF.
 
-        reader = pypdf.PdfReader(str(pdf_path))
-        text = ""
-        for page in reader.pages:
-            text += page.extract_text() + "\n"
-        return text
-    except Exception:
-        return ""
+    Raises on failure instead of returning "" — a silent empty string used to
+    flow into extract_showcase and overwrite the showcase with all-null fields.
+    """
+    import pypdf
+
+    reader = pypdf.PdfReader(str(pdf_path))
+    text = ""
+    for page in reader.pages:
+        text += (page.extract_text() or "") + "\n"
+    return text

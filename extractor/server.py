@@ -2,7 +2,6 @@ from dotenv import load_dotenv
 from pathlib import Path
 load_dotenv(Path(__file__).parent / ".env")
 
-
 """
 FastAPI server for deal pipeline extraction.
 
@@ -111,11 +110,24 @@ SHOWCASE_IMG_DIR = paths.SHOWCASE_IMG_DIR
 from fastapi.staticfiles import StaticFiles
 try:
     app.mount("/showcase-img", StaticFiles(directory=str(SHOWCASE_IMG_DIR)), name="showcase_images")
-except Exception:
-    pass  # Silently continue if mount fails
+except Exception as e:
+    # Don't die on a missing dir, but never fail silently — every deal photo would 404.
+    print(f"WARNING: could not mount /showcase-img ({SHOWCASE_IMG_DIR}): {e}", file=sys.stderr, flush=True)
 
 # Session auth gate (no-op unless APP_USERS is set) — install before the SPA mount.
 install_auth(app)
+
+
+def safe_filename(filename: Optional[str]) -> str:
+    """Sanitise a client-supplied filename to a bare name (no path components).
+
+    UploadFile.filename is attacker-controlled; without this, names like
+    '../../x.pdf' escape the target directory.
+    """
+    name = Path(filename or "upload.pdf").name  # strips POSIX components
+    name = name.replace("\\", "_").replace("/", "_")  # belt-and-braces for Windows separators
+    name = name.strip(". ")
+    return name or "upload.pdf"
 
 
 class MarketOverride(BaseModel):
@@ -261,8 +273,8 @@ async def ingest_pdfs(
 
     for file in files:
         try:
-            # Write temp file
-            temp_path = PDFS_DIR / f"temp_{file.filename}"
+            # Write temp file (sanitised — client filenames must not carry path segments)
+            temp_path = PDFS_DIR / f"temp_{safe_filename(file.filename)}"
             content = await file.read()
             temp_path.write_bytes(content)
 
@@ -338,9 +350,14 @@ async def ingest_folder(folder_path: str = Query("deals_inbox")) -> List[IngestR
     Returns:
         List of DealRecord responses
     """
-    folder = PROJECT_ROOT / folder_path
+    # Contain the folder inside the repo: absolute paths and '..' would otherwise
+    # let a caller glob and ingest PDFs from anywhere on the host.
+    folder = (PROJECT_ROOT / folder_path).resolve()
+    root = PROJECT_ROOT.resolve()
+    if root != folder and root not in folder.parents:
+        raise HTTPException(status_code=400, detail="folder_path must be inside the project")
     if not folder.exists():
-        raise HTTPException(status_code=404, detail=f"Folder not found: {folder}")
+        raise HTTPException(status_code=404, detail=f"Folder not found: {folder_path}")
 
     results = []
     pdf_files = list(folder.glob("*.pdf"))

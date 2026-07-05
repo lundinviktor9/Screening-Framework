@@ -1,5 +1,5 @@
 """
-Deal persistence layer.
+Deal persistence layer (audit-hardened 2026-07-05).
 
 Handles:
 - Atomic writes to deals.json with file locking
@@ -10,13 +10,22 @@ Handles:
 import json
 import hashlib
 import tempfile
+import threading
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 from datetime import datetime
 
 
+class DealStoreCorrupt(Exception):
+    """deals.json exists but is not valid JSON — refuse to operate rather than wipe it."""
+
+
 class DealStore:
     """Atomic persistence for deal records."""
+
+    # Process-wide lock: FastAPI sync endpoints run in a threadpool, so
+    # concurrent read-modify-write cycles would otherwise lose updates.
+    _lock = threading.Lock()
 
     def __init__(self, deals_json_path: str):
         """
@@ -35,12 +44,22 @@ class DealStore:
             self._write_atomic([])
 
     def read_all(self) -> List[Dict[str, Any]]:
-        """Read all deals."""
+        """Read all deals.
+
+        A missing file means an empty store. A file that exists but fails to
+        parse must NOT be treated as empty: the next add() would atomically
+        overwrite it with a one-deal file and destroy every existing deal.
+        """
         try:
             with open(self.deals_path, encoding="utf-8") as f:
                 return json.load(f)
-        except (json.JSONDecodeError, FileNotFoundError):
+        except FileNotFoundError:
             return []
+        except json.JSONDecodeError as e:
+            raise DealStoreCorrupt(
+                f"{self.deals_path} is corrupted ({e}). Refusing to proceed — "
+                f"repair or restore the file (a valid empty store is '[]')."
+            ) from e
 
     def read_by_id(self, deal_id: str) -> Optional[Dict[str, Any]]:
         """Read a single deal by ID."""
@@ -65,12 +84,13 @@ class DealStore:
         if "deal_id" not in deal_record:
             raise ValueError("deal_record must have 'deal_id'")
 
-        deals = self.read_all()
-        deal_record["created_at"] = datetime.utcnow().isoformat() + "Z"
-        deal_record["updated_at"] = deal_record["created_at"]
+        with self._lock:
+            deals = self.read_all()
+            deal_record["created_at"] = datetime.utcnow().isoformat() + "Z"
+            deal_record["updated_at"] = deal_record["created_at"]
 
-        deals.append(deal_record)
-        self._write_atomic(deals)
+            deals.append(deal_record)
+            self._write_atomic(deals)
 
         return deal_record
 
@@ -85,14 +105,15 @@ class DealStore:
         Returns:
             Updated deal record, or None if not found
         """
-        deals = self.read_all()
+        with self._lock:
+            deals = self.read_all()
 
-        for deal in deals:
-            if deal.get("deal_id") == deal_id:
-                deal.update(updates)
-                deal["updated_at"] = datetime.utcnow().isoformat() + "Z"
-                self._write_atomic(deals)
-                return deal
+            for deal in deals:
+                if deal.get("deal_id") == deal_id:
+                    deal.update(updates)
+                    deal["updated_at"] = datetime.utcnow().isoformat() + "Z"
+                    self._write_atomic(deals)
+                    return deal
 
         return None
 
@@ -106,14 +127,15 @@ class DealStore:
         Returns:
             True if deleted, False if not found
         """
-        deals = self.read_all()
-        original_len = len(deals)
+        with self._lock:
+            deals = self.read_all()
+            original_len = len(deals)
 
-        deals = [d for d in deals if d.get("deal_id") != deal_id]
+            deals = [d for d in deals if d.get("deal_id") != deal_id]
 
-        if len(deals) < original_len:
-            self._write_atomic(deals)
-            return True
+            if len(deals) < original_len:
+                self._write_atomic(deals)
+                return True
 
         return False
 

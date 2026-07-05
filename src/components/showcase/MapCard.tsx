@@ -1,55 +1,14 @@
-import { useEffect, useRef } from 'react';
+import Map, { Marker } from 'react-map-gl/mapbox';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 interface MapCardProps {
   location?: { address?: string; postcode?: string; lat?: number; lng?: number } | null;
   onLocationChange?: (lat: number, lng: number) => void;
 }
 
+const MAPBOX_TOKEN = (process.env.MAPBOX_TOKEN as string) || '';
+
 export function MapCard({ location, onLocationChange }: MapCardProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!containerRef.current || !location?.lat || !location?.lng) return;
-
-    // Lazy-load Mapbox
-    const mapboxgl = (window as any).mapboxgl;
-    if (!mapboxgl) {
-      containerRef.current.innerHTML = '<div class="p-4 text-sm text-gray-600">Map TBC</div>';
-      return;
-    }
-
-    try {
-      const mapboxToken = (process.env.MAPBOX_TOKEN as string) || '';
-      if (!mapboxToken) {
-        containerRef.current.innerHTML = '<div class="p-4 text-sm text-gray-600">Map TBC (no token)</div>';
-        return;
-      }
-
-      mapboxgl.accessToken = mapboxToken;
-      const map = new mapboxgl.Map({
-        container: containerRef.current,
-        style: 'mapbox://styles/mapbox/light-v11',
-        center: [location.lng, location.lat],
-        zoom: 14,
-        scrollZoom: false,
-      });
-
-      // Add draggable marker
-      const marker = new mapboxgl.Marker({ draggable: true, color: '#7D5A7D' })
-        .setLngLat([location.lng, location.lat])
-        .addTo(map);
-
-      marker.on('dragend', () => {
-        const lngLat = marker.getLngLat();
-        onLocationChange?.(lngLat.lat, lngLat.lng);
-      });
-
-      return () => map.remove();
-    } catch (e) {
-      containerRef.current.innerHTML = '<div class="p-4 text-sm text-gray-600">Map TBC</div>';
-    }
-  }, [location?.lat, location?.lng]);
-
   if (!location?.lat || !location?.lng) {
     return (
       <div className="h-64 bg-brand-cardBg rounded-lg flex items-center justify-center">
@@ -58,5 +17,31 @@ export function MapCard({ location, onLocationChange }: MapCardProps) {
     );
   }
 
-  return <div ref={containerRef} className="h-64 rounded-lg border border-gray-200 overflow-hidden" />;
+  if (!MAPBOX_TOKEN) {
+    return (
+      <div className="h-64 bg-brand-cardBg rounded-lg flex items-center justify-center">
+        <span className="text-sm text-gray-600">Map TBC (no Mapbox token)</span>
+      </div>
+    );
+  }
+
+  return (
+    <div className="h-64 rounded-lg border border-gray-200 overflow-hidden">
+      <Map
+        mapboxAccessToken={MAPBOX_TOKEN}
+        initialViewState={{ latitude: location.lat, longitude: location.lng, zoom: 14 }}
+        mapStyle="mapbox://styles/mapbox/light-v11"
+        scrollZoom={false}
+        style={{ width: '100%', height: '100%' }}
+      >
+        <Marker
+          latitude={location.lat}
+          longitude={location.lng}
+          color="#7D5A7D"
+          draggable={!!onLocationChange}
+          onDragEnd={(e) => onLocationChange?.(e.lngLat.lat, e.lngLat.lng)}
+        />
+      </Map>
+    </div>
+  );
 }

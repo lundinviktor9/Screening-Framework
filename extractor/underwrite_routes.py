@@ -328,7 +328,10 @@ def make_underwrite_router(store) -> APIRouter:
         region = region or d["region"]
 
         ddir = _deal_dir(deal_id)
-        raw_path = ddir / f"raw_{file.filename}"
+        # Sanitise the client-supplied filename: strip path components so names
+        # like '../../x.xlsx' cannot escape the deal directory.
+        _fname = Path(file.filename or "rentroll.xlsx").name.replace("\\", "_").replace("/", "_")
+        raw_path = ddir / f"raw_{_fname or 'rentroll.xlsx'}"
         raw_path.write_bytes(await file.read())
 
         rr_xlsx = str(ddir / "canonical_rr.xlsx")
@@ -444,14 +447,15 @@ def make_underwrite_router(store) -> APIRouter:
         except Exception as e:
             import traceback as _tb
             _trace = _tb.format_exc()
-            error_log_path = REPO_ROOT / "mode_b_error.log"
+            # Log the full traceback server-side only (run_dir is always writable —
+            # REPO_ROOT is read-only/ephemeral in the container). Never return the
+            # traceback to the client: internal paths/stack are info disclosure.
             try:
-                error_log_path.write_text(_trace, encoding="utf-8")
-                detail = f"Mode B failed: {e}\n\nFull traceback saved to {error_log_path}"
+                (run_dir / "mode_b_error.log").write_text(_trace, encoding="utf-8")
             except Exception:
-                detail = f"Mode B failed: {e}\n\nFull traceback:\n{_trace}"
+                pass
             print("\n=== Mode B traceback ===\n" + _trace + "\n=== end traceback ===\n", flush=True)
-            raise HTTPException(status_code=500, detail=detail)
+            raise HTTPException(status_code=500, detail=f"Mode B failed: {e}")
 
         model_dest = run_dir / "model.xlsx"
         try:
@@ -548,11 +552,4 @@ def make_underwrite_router(store) -> APIRouter:
                     break
         if not path or not Path(path).exists():
             raise HTTPException(status_code=404, detail="No model for this deal/version yet.")
-        asset = (block.get("asset") or deal_id).replace(" ", "_")
-        tag = f"_v{version}" if version is not None else ""
-        return FileResponse(
-            path, filename=f"{asset}_underwrite{tag}.xlsx",
-            media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        )
-
-    return router
+       
