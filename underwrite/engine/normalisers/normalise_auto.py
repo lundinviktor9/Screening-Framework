@@ -25,6 +25,19 @@ from openpyxl.utils import column_index_from_string as cix, get_column_letter as
 
 # ----- deterministic parsers (the trustworthy half) -----
 
+def _first_text_block(content) -> str:
+    """Return the first text block from an Anthropic response.
+
+    Newer Claude models can emit thinking blocks before the text block, so
+    content[0] is not guaranteed to have a .text attribute.
+    """
+    for block in content:
+        text = getattr(block, "text", None)
+        if text:
+            return text
+    raise ValueError("No text block in model response")
+
+
 def parse_num(v: Any) -> Optional[float]:
     if v is None or v == "":
         return None
@@ -265,7 +278,7 @@ def propose_mapping(ws, sheet_name: str, anthropic_client=None, model: str = "cl
         model=model, max_tokens=1500,
         messages=[{"role": "user", "content": prompt}],
     )
-    text = msg.content[0].text
+    text = _first_text_block(msg.content)
     text = text[text.find("{"): text.rfind("}") + 1]
     m = json.loads(text)
     m.setdefault("sheet", sheet_name)

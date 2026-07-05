@@ -31,6 +31,19 @@ class ShowcaseError(Exception):
     pass
 
 
+def _first_text_block(content) -> str:
+    """Return the first text block from an Anthropic response.
+
+    Newer Claude models can emit thinking blocks before the text block, so
+    content[0] is not guaranteed to have a .text attribute.
+    """
+    for block in content:
+        text = getattr(block, "text", None)
+        if text:
+            return text
+    raise ValueError("No text block in model response")
+
+
 SHOWCASE_SYSTEM_PROMPT = """You are a precision investment memo analyst specializing in UK real estate.
 
 Extract showcase data from the investment memorandum. Return ONLY valid JSON.
@@ -107,7 +120,7 @@ def extract_showcase(
         messages=[{"role": "user", "content": prompt}],
     )
 
-    raw_text = response.content[0].text
+    raw_text = _first_text_block(response.content)
     extracted = _parse_json_response(raw_text)
 
     # Clean up null values in kpis

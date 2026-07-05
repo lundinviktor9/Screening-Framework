@@ -28,6 +28,19 @@ class ExtractionError(Exception):
     pass
 
 
+def _first_text_block(content) -> str:
+    """Return the first text block from an Anthropic response.
+
+    Newer Claude models can emit thinking blocks before the text block, so
+    content[0] is not guaranteed to have a .text attribute.
+    """
+    for block in content:
+        text = getattr(block, "text", None)
+        if text:
+            return text
+    raise ValueError("No text block in model response")
+
+
 class Extractor:
     """LLM-based extractor for UK real estate deal information."""
 
@@ -70,7 +83,7 @@ class Extractor:
             messages=[{"role": "user", "content": prompt}],
         )
 
-        raw_output = response.content[0].text
+        raw_output = _first_text_block(response.content)
         extracted = self._parse_json_response(raw_output)
         row = self._map_inbound_uk_fields(extracted)
 
