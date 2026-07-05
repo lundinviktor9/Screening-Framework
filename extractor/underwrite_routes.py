@@ -552,4 +552,11 @@ def make_underwrite_router(store) -> APIRouter:
                     break
         if not path or not Path(path).exists():
             raise HTTPException(status_code=404, detail="No model for this deal/version yet.")
-       
+        asset = (block.get("asset") or deal_id).replace(" ", "_")
+        tag = f"_v{version}" if version is not None else ""
+        return FileResponse(
+            path, filename=f"{asset}_underwrite{tag}.xlsx",
+            media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        )
+
+    return router
