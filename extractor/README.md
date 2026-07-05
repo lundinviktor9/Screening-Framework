@@ -90,20 +90,13 @@ extractor/
 ├── extractor.py              ← Nordic src/extract/extractor.py, non-UK paths stripped
 ├── prompts.py                ← Nordic src/extract/prompts.py, only INBOUND_UK_* kept
 ├── normalizer.py             ← Nordic src/normalize/row_normalizer.py, UK row only
-├── normalizers/              ← field-level normalizers (verbatim)
+├── normalizers/              ← field-level normalizers (unused modules removed 2026-07-05)
 │   ├── __init__.py
 │   ├── city_normalizer.py
-│   ├── country_normalizer.py
-│   ├── date_normalizer.py
-│   ├── designation_normalizer.py
 │   ├── number_normalizer.py
-│   ├── property_type.py
-│   └── load_mappings.py      ← config path rewritten to package-relative
+│   └── property_type.py
 ├── schemas/
 │   └── inbound_uk.schema.json
-├── config/
-│   └── mappings/
-│       └── property_type_map.yml
 ├── requirements.txt
 └── .env.example              (populate .env separately)
 ```

@@ -16,9 +16,6 @@ Exposes:
 Chains Tasks 1-4: PDF read → extract → match → profile → persist
 """
 
-from dotenv import load_dotenv
-from pathlib import Path
-load_dotenv(Path(__file__).parent / ".env")
 
 import os
 import sys
@@ -40,7 +37,7 @@ from extractor.extractor import extract_inbound_uk
 from extractor.normalizer import normalize_inbound_uk_row
 from extractor.market_matcher import MarketMatcher
 from extractor.profile_generator import ProfileGenerator
-from extractor.persistence import DealStore, create_deal_record, DealStore
+from extractor.persistence import DealStore, create_deal_record
 from extractor.underwrite_routes import make_underwrite_router
 from extractor.showcase_routes import make_showcase_router
 from extractor.export_routes import make_export_router

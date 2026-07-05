@@ -18,12 +18,6 @@ try:
 except ImportError:
     Presentation = None
 
-try:
-    import requests
-except ImportError:
-    requests = None
-
-
 def build_deck(
     deals: List[Dict[str, Any]],
     include_pipeline_summary: bool = False,

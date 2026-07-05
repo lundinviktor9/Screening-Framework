@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── shadcn/ui design tokens — single source mirrored in src/theme/brand.ts ──
+/* ── shadcn/ui design tokens — single source of truth ──
    Values are HSL triples (no hsl() wrapper) consumed via hsl(var(--token)). */
 @layer base {
   :root {
