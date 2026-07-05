@@ -46,5 +46,14 @@ boe_debug.html
 __pycache__/
 *.pyc
 
-# Transient LibreOffice headless user-profile dumps from underwrite recalc runs
-extractor/underwrite_runs/**/lo_profile/
+# Generated underwrite run artifacts (xlsx models, LibreOffice profiles) — never commit
+extractor/underwrite_runs/
+
+# Ingested IM PDFs (confidential broker material) — never commit
+extractor/pdfs_ingested/
+
+# LibreOffice scratch dir from local testing
+test_workdir/
+
+# Windows folder metadata
+desktop.ini
