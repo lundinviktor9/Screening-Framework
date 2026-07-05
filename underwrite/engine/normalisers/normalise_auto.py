@@ -275,7 +275,7 @@ def propose_mapping(ws, sheet_name: str, anthropic_client=None, model: str = "cl
         import anthropic  # type: ignore
         anthropic_client = anthropic.Anthropic()
     msg = anthropic_client.messages.create(
-        model=model, max_tokens=1500,
+        model=model, max_tokens=8000,
         messages=[{"role": "user", "content": prompt}],
     )
     text = _first_text_block(msg.content)

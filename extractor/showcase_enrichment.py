@@ -115,7 +115,7 @@ def extract_showcase(
     prompt = SHOWCASE_USER_PROMPT.format(document_text=pdf_text)
     response = client.messages.create(
         model=model,
-        max_tokens=1024,
+        max_tokens=8000,
         system=SHOWCASE_SYSTEM_PROMPT,
         messages=[{"role": "user", "content": prompt}],
     )
