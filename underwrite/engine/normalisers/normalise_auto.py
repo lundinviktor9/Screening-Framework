@@ -74,21 +74,79 @@ def parse_yn(v: Any) -> str:
 
 # ----- mapping-driven extraction (Stage 2) -----
 
-# canonical fields the engine RR needs (field-dictionary letters in the RR sheet)
+# canonical fields the engine RR needs (field-dictionary OLD-letter scheme in the RR sheet).
+# These letters are the contract with inject_deal_v21.FIELD_MAP and underwrite_routes.GAP_FIELDS -
+# do NOT renumber them. Expanded (v22) to carry the full template-consumed column set so DealRR
+# is LOSSLESS: NEF (Q), ERV growth (R), rateable/rates/service-charge (V/W/X) and lease metadata
+# (AY/AZ/BB/BC/BG) now survive normalisation instead of being silently dropped.
 RR_COLS = {  # canonical name -> RR output column letter
     "Asset Name": "B", "Region": "C", "Sector": "D", "Unit Number": "E", "Tenant Name": "F",
     "Area GIA (sq ft)": "G", "Entry Yield (NIY)": "H", "Exit Yield": "I", "Lease Start": "J",
     "Lease Expiry": "K", "Break Date": "L", "Break Taken (1=Yes,0=No)": "M",
     "Rent Review / MTM Date": "N", "Event @ Expiry (Y=Renew / X=Vacate)": "O",
-    "Vacant @ Entry (Y/N)": "P", "Passing Rent (pa)": "S", "ERV (pa)": "T", "ERV (psf)": "U",
+    "Vacant @ Entry (Y/N)": "P", "Rent Review NEF": "Q", "ERV Growth to Lease Start (% pa)": "R",
+    "Passing Rent (pa)": "S", "ERV (pa)": "T", "ERV (psf)": "U",
+    "Rateable Value": "V", "Business Rates (pa)": "W", "Service Charge (pa)": "X",
     "Assumed Void (mths)": "Y", "Assumed Rent Free (mths)": "Z", "Re-letting Capex (psf)": "AA",
-    "Guarantee Rent (pa)": "BF",
+    "1954 Act (Y/N)": "AY", "EPC Rating": "AZ", "Rent Review (Y/N)": "BB",
+    "Term Certain (mths)": "BC", "Guarantee Rent (pa)": "BF", "Guarantee Period (mths)": "BG",
 }
 NUM = {"Area GIA (sq ft)", "Passing Rent (pa)", "ERV (pa)", "ERV (psf)", "Assumed Void (mths)",
-       "Assumed Rent Free (mths)", "Re-letting Capex (psf)", "Guarantee Rent (pa)"}
-PCT = {"Entry Yield (NIY)", "Exit Yield"}
+       "Assumed Rent Free (mths)", "Re-letting Capex (psf)", "Guarantee Rent (pa)",
+       "Rateable Value", "Business Rates (pa)", "Service Charge (pa)",
+       "Term Certain (mths)", "Guarantee Period (mths)"}
+# NEF (0.925) and ERV growth (0.045) are rate-like decimals; parse_pct's >1 heuristic also
+# rescues a broker "92.5%" / "4.5" -> 0.925 / 0.045 without touching a value already in decimals.
+PCT = {"Entry Yield (NIY)", "Exit Yield", "Rent Review NEF", "ERV Growth to Lease Start (% pa)"}
 DATE = {"Lease Start", "Lease Expiry", "Break Date", "Rent Review / MTM Date"}
-YN = {"Vacant @ Entry (Y/N)"}
+YN = {"Vacant @ Entry (Y/N)", "1954 Act (Y/N)", "Rent Review (Y/N)"}
+INT = {"Break Taken (1=Yes,0=No)"}
+TEXT_PASSTHROUGH = {"Asset Name", "Region", "Sector", "Unit Number", "Tenant Name",
+                    "EPC Rating", "Event @ Expiry (Y=Renew / X=Vacate)"}
+
+# Priority of each template-consumed field for the per-asset "missing required fields" summary
+# (replaces the old flag-per-unit noise). PRICING fields are analyst dials (set in the
+# Assumptions step), surfaced separately; metadata columns are intentionally omitted.
+FIELD_PRIORITY = {
+    "Asset Name": "REQUIRED", "Unit Number": "REQUIRED", "Area GIA (sq ft)": "REQUIRED",
+    "Passing Rent (pa)": "REQUIRED", "Lease Start": "REQUIRED", "Lease Expiry": "REQUIRED",
+    "Rent Review / MTM Date": "REQUIRED", "Event @ Expiry (Y=Renew / X=Vacate)": "REQUIRED",
+    "Vacant @ Entry (Y/N)": "REQUIRED", "ERV (pa)": "REQUIRED",
+    "Entry Yield (NIY)": "PRICING", "Exit Yield": "PRICING",
+    "Break Date": "MATERIAL", "Break Taken (1=Yes,0=No)": "MATERIAL",
+    "Rent Review NEF": "MATERIAL", "ERV Growth to Lease Start (% pa)": "MATERIAL",
+    "Business Rates (pa)": "MATERIAL", "Service Charge (pa)": "MATERIAL",
+    "Assumed Void (mths)": "MATERIAL", "Assumed Rent Free (mths)": "MATERIAL",
+    "Re-letting Capex (psf)": "MATERIAL", "Term Certain (mths)": "MATERIAL",
+}
+
+
+def _is_blank(v: Any) -> bool:
+    return v is None or (isinstance(v, str) and v.strip() == "")
+
+
+def summarise_missing(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Per-asset roll-up of which template-consumed fields are still blank after extraction.
+
+    Replaces the old one-flag-per-unit noise with a single actionable list: for each asset and
+    each REQUIRED/MATERIAL/PRICING field, how many of its units are missing that value. The app's
+    Assumptions step consumes this to show the analyst exactly what still needs input. Fields the
+    broker fully supplied never appear. Never fabricates a value - missing stays missing."""
+    by_asset: Dict[str, List[Dict[str, Any]]] = {}
+    for row in rows:
+        by_asset.setdefault(str(row.get("Asset Name") or "?"), []).append(row)
+    out: List[Dict[str, Any]] = []
+    for asset, arows in by_asset.items():
+        total = len(arows)
+        for field, priority in FIELD_PRIORITY.items():
+            missing = sum(1 for r in arows if _is_blank(r.get(field)))
+            if missing:
+                out.append({"asset": asset, "field": field, "priority": priority,
+                            "missing": missing, "total": total})
+    # REQUIRED first, then PRICING, then MATERIAL; within a tier, most-missing first.
+    order = {"REQUIRED": 0, "PRICING": 1, "MATERIAL": 2}
+    out.sort(key=lambda e: (order.get(e["priority"], 9), -e["missing"], e["asset"]))
+    return out
 
 
 def apply_mapping(ws, mapping: Dict[str, Any], asset: str, region: str) -> Dict[str, Any]:
@@ -106,48 +164,68 @@ def apply_mapping(ws, mapping: Dict[str, Any], asset: str, region: str) -> Dict[
 
     r = hdr
     while ws.cell(r, cix(unit_src)).value not in (None, ""):
-        row: Dict[str, Any] = {"Asset Name": asset, "Region": region, "Sector": "Industrial"}
+        row: Dict[str, Any] = {}
         for field, col in colmap.items():
             raw = ws.cell(r, cix(col)).value
             if field in PCT:
                 row[field] = parse_pct(raw)
+            elif field in INT:
+                n = parse_num(raw)
+                row[field] = int(n) if n is not None else None
             elif field in NUM:
                 row[field] = parse_num(raw)
             elif field in DATE:
                 row[field] = parse_date(raw)
             elif field in YN:
-                row[field] = parse_yn(raw)
+                # only coerce when the broker gave a value; a blank Y/N stays blank (not "N")
+                row[field] = parse_yn(raw) if not _is_blank(raw) else None
             else:
                 row[field] = raw
-        # ----- house derivations (deterministic) -----
-        # ERV pa from psf * area when pa absent
-        if not row.get("ERV (pa)") and row.get("ERV (psf)") and row.get("Area GIA (sq ft)"):
+        # ----- per-unit identity: preserve the broker's PER-ROW asset/region/sector when mapped
+        # (fixes multi-asset portfolios collapsing into one deal-name asset - root cause #1); fall
+        # back to the deal-level value only when the schedule has no per-row column or a blank cell.
+        if _is_blank(row.get("Asset Name")):
+            row["Asset Name"] = asset
+        if _is_blank(row.get("Region")):
+            row["Region"] = region
+        if _is_blank(row.get("Sector")):
+            row["Sector"] = "Industrial"
+        # ----- house derivations (deterministic; NEVER fabricate ERV) -----
+        # ERV pa from a genuine ERV psf column x area. This is NOT fabrication: it only fires when
+        # the broker supplied an ERV psf. We never copy passing/topped-up rent into ERV (root
+        # cause #2) - if the schedule carries no ERV at all, ERV stays null and is reported as a
+        # missing required field for the analyst to set in the Assumptions step.
+        if _is_blank(row.get("ERV (pa)")) and row.get("ERV (psf)") and row.get("Area GIA (sq ft)"):
             row["ERV (pa)"] = round(row["ERV (psf)"] * row["Area GIA (sq ft)"], 2)
         # vacant @ entry: explicit flag, else tenant 'Vacant' / passing 0
-        if "Vacant @ Entry (Y/N)" not in colmap:
+        if _is_blank(row.get("Vacant @ Entry (Y/N)")):
             t = str(row.get("Tenant Name") or "").lower()
             row["Vacant @ Entry (Y/N)"] = "Y" if (t == "vacant" or not row.get("Passing Rent (pa)")) else "N"
-        # event @ expiry: X (vacate) if break taken OR vacate-at-expiry flag, else Y (renew)
-        bt = str(cell(r, "Break Taken (1=Yes,0=No)") or "").strip() in ("1", "1.0")
-        vac_exp = str(cell(r, "_vacate_at_expiry") or "").strip() in ("1", "1.0", "y", "yes")
-        row["Event @ Expiry (Y=Renew / X=Vacate)"] = "X" if (bt or vac_exp) else "Y"
+        # event @ expiry: honour a mapped column; else derive X (vacate) if break taken OR an
+        # explicit vacate-at-expiry flag, else Y (renew).
+        if _is_blank(row.get("Event @ Expiry (Y=Renew / X=Vacate)")):
+            bt = str(cell(r, "Break Taken (1=Yes,0=No)") or "").strip() in ("1", "1.0")
+            vac_exp = str(cell(r, "_vacate_at_expiry") or "").strip() in ("1", "1.0", "y", "yes")
+            row["Event @ Expiry (Y=Renew / X=Vacate)"] = "X" if (bt or vac_exp) else "Y"
+        else:
+            ev = str(row["Event @ Expiry (Y=Renew / X=Vacate)"]).strip().lower()
+            row["Event @ Expiry (Y=Renew / X=Vacate)"] = "X" if ev in ("x", "vacate", "vacating") else "Y"
         # guarantee rent: only meaningful for vacant@entry units
         if row.get("Vacant @ Entry (Y/N)") != "Y":
             row["Guarantee Rent (pa)"] = None
         rows.append(row)
         r += 1
 
-    # ----- judgment flags (NOT auto-resolved) -----
+    # ----- pricing sign-off flags (genuine judgement calls, kept at DEAL level, not per unit) ---
     flags.append({"field": "Entry Yield (NIY)", "note": "schedule NIY is a starting point; confirm "
                   "the acquisition yield (pricing decision)", "needs_signoff": True})
     flags.append({"field": "Exit Yield", "note": "confirm exit yield (biggest value driver)",
                   "needs_signoff": True})
-    for row in rows:
-        if row.get("Vacant @ Entry (Y/N)") == "Y":
-            flags.append({"unit": row["Unit Number"], "field": "Vacant @ Entry",
-                          "note": "confirm vacant valuation basis (capitalise guarantee/headline)",
-                          "needs_signoff": True})
-    return {"rows": rows, "flags": flags, "units": len(rows)}
+    # ----- per-asset missing-required-fields summary (replaces the old flag-per-unit noise) -----
+    missing_required = summarise_missing(rows)
+    return {"rows": rows, "flags": flags, "units": len(rows),
+            "missing_required": missing_required,
+            "assets": sorted({str(r_.get("Asset Name") or "?") for r_ in rows})}
 
 
 def write_rr_sheet(rows: List[Dict[str, Any]], out_xlsx: str, rr_sheet: str = "DealRR") -> None:
@@ -219,6 +297,45 @@ KNOWN_LAYOUTS = [
     },
 ]
 
+# Sheets that are never a rent roll: summary/cover tabs and machine-generated map data.
+_NON_RR_SHEET_KEYS = ("summary", "cover", "contents", "index", "esri", "mapinfo",
+                      "map_info", "chart", "graph", "assumptions", "instructions", "notes")
+# Header tokens that signal a tenancy schedule / rent roll.
+_RR_SHEET_TOKENS = ("unit", "tenant", "lease", "rent", "gia", "area", "passing",
+                    "erv", "wault", "expiry", "review", "break")
+
+
+def pick_rr_sheet(wb) -> str:
+    """Choose the worksheet most likely to hold the rent roll / tenancy schedule.
+
+    Broker workbooks routinely lead with a 'Summary' cover tab and trail with
+    machine sheets like 'ESRI_MAPINFO_SHEET', so `wb.sheetnames[0]` is often the
+    wrong sheet. We score every sheet by how many tenancy-schedule header tokens
+    appear in its first rows, hard-skipping obvious non-data tabs, and return the
+    best. Falls back to the first sheet if nothing scores (never raises)."""
+    best_name, best_score = None, -1
+    for name in wb.sheetnames:
+        low = _normkey(name)
+        skip = any(_normkey(k) in low for k in _NON_RR_SHEET_KEYS)
+        ws = wb[name]
+        # Count distinct tenancy tokens found in the top rows (headers live near the top).
+        seen: set = set()
+        for r in range(1, min(ws.max_row, 25) + 1):
+            for c in range(1, min(ws.max_column, 60) + 1):
+                v = ws.cell(r, c).value
+                if isinstance(v, str):
+                    lv = v.lower()
+                    for tok in _RR_SHEET_TOKENS:
+                        if tok in lv:
+                            seen.add(tok)
+        score = len(seen)
+        if skip:
+            score -= 100  # only ever chosen if every sheet is a "skip" sheet
+        if score > best_score:
+            best_name, best_score = name, score
+    return best_name or wb.sheetnames[0]
+
+
 def detect_known_mapping(ws) -> Optional[Dict[str, Any]]:
     """Return a ready mapping if the sheet matches a known broker layout, else None."""
     for lay in KNOWN_LAYOUTS:
@@ -238,14 +355,24 @@ def detect_known_mapping(ws) -> Optional[Dict[str, Any]]:
 MAPPING_PROMPT = """You map a broker rent roll to a canonical schema. Output STRICT JSON only.
 
 Canonical fields (map each to the source COLUMN LETTER that holds it; omit if not present):
-  Unit Number, Tenant Name, Area GIA (sq ft), Entry Yield (NIY), Exit Yield, Lease Start,
-  Lease Expiry, Break Date, Break Taken (1=Yes,0=No), Rent Review / MTM Date,
-  Vacant @ Entry (Y/N), Passing Rent (pa), Guarantee Rent (pa) [= headline rent for vacant units],
-  ERV (pa), ERV (psf), Assumed Void (mths), Assumed Rent Free (mths), Re-letting Capex (psf)
+  Asset Name [the property/scheme each UNIT belongs to - map it whenever the schedule lists more
+    than one property so each unit keeps its own asset; a multi-asset portfolio has a per-row
+    Asset/Property/Scheme column],
+  Region, Sector, Unit Number, Tenant Name, Area GIA (sq ft), Entry Yield (NIY), Exit Yield,
+  Lease Start, Lease Expiry, Break Date, Break Taken (1=Yes,0=No), Rent Review / MTM Date,
+  Event @ Expiry (Y=Renew / X=Vacate), Vacant @ Entry (Y/N), Rent Review NEF,
+  ERV Growth to Lease Start (% pa), Passing Rent (pa),
+  Guarantee Rent (pa) [= headline rent for vacant units],
+  ERV (pa), ERV (psf), Rateable Value, Business Rates (pa), Service Charge (pa),
+  Assumed Void (mths), Assumed Rent Free (mths), Re-letting Capex (psf),
+  1954 Act (Y/N), EPC Rating, Rent Review (Y/N), Term Certain (mths)
 
 Also return aux_columns for any "Vacate at Expiry" flag as key "_vacate_at_expiry".
 
 CRITICAL RULES:
+0. MULTI-ASSET: if the schedule spans several properties, there is almost always a per-row Asset /
+   Property / Scheme / Estate column - map it to "Asset Name" so each unit keeps its own asset.
+   Do NOT leave it unmapped; leaving it unmapped collapses every unit into one asset.
 1. The header row is usually NOT row 1. Broker schedules begin with a title / address / "Today's
    Date" / map-link / notes block; the real header is the first row whose cells are column LABELS
    like "Unit", "GIA (sq ft)", "Passing Rent", "Entry Yield". Set "header_row" to that row and
@@ -303,13 +430,23 @@ def normalise_auto(file_path: str, asset: str, region: str, out_xlsx: str,
         if hand is not None:
             return hand
     wb = openpyxl.load_workbook(file_path, data_only=True)
-    ws0 = wb[sheet] if sheet else wb[wb.sheetnames[0]]
+    # Default to the sheet that actually looks like a rent roll (not just the first
+    # tab, which is often a 'Summary' cover or an 'ESRI_MAPINFO_SHEET' machine tab).
+    ws0 = wb[sheet] if sheet else wb[pick_rr_sheet(wb)]
     if mapping is None:
         mapping = detect_known_mapping(ws0)
         if mapping is None:
             mapping = propose_mapping(ws0, ws0.title, anthropic_client)
-    ws = wb[mapping.get("sheet", ws0.title)]
+    # Resolve the source sheet defensively: the LLM can return a sheet name that
+    # isn't in the workbook (e.g. a generic 'Rent Roll'), which would crash with
+    # "Worksheet Rent Roll does not exist." Only honour a returned name when it
+    # really exists; otherwise fall back to the sheet we previewed/detected on.
+    mapped_sheet = mapping.get("sheet")
+    ws = wb[mapped_sheet] if mapped_sheet in wb.sheetnames else ws0
+    mapping["sheet"] = ws.title
     res = apply_mapping(ws, mapping, asset, region)
     write_rr_sheet(res["rows"], out_xlsx, rr_sheet)
     return {"rr_xlsx": out_xlsx, "rr_sheet": rr_sheet, "units": res["units"],
-            "flags": res["flags"], "mapping": mapping}
+            "flags": res["flags"], "mapping": mapping,
+            "missing_required": res.get("missing_required", []),
+            "assets": res.get("assets", [])}

@@ -112,6 +112,15 @@ class ConfirmMappingBody(BaseModel):
 class RunBody(BaseModel):
     assumptions: Dict[str, Any] = {}
     gap_overrides: Dict[str, Any] = {}   # field -> deal-level default for blank schedule cells
+    # three-tier underwrite assumptions (deal -> asset -> unit); see
+    # underwrite/schemas/underwrite_assumptions.schema.json. Merged into DealRR before Mode B.
+    underwrite_assumptions: Optional[Dict[str, Any]] = None
+    # hardcode purchase-price toggle
+    pp_mode: Optional[str] = None        # 'hardcoded' | 'yield' (default yield)
+    pp_value: Optional[float] = None     # net purchase price (£) when pp_mode == 'hardcoded'
+    # asset-inclusion checklist (register Q6:Q10). West Craig benchmark is always excluded.
+    include_assets: Optional[List[str]] = None
+    exclude_assets: Optional[List[str]] = None
     flag_resolutions: Optional[List[Dict[str, Any]]] = None
     mapping_signed_off: bool = False
     flags_signed_off: bool = False
@@ -349,6 +358,8 @@ def make_underwrite_router(store) -> APIRouter:
             "mapping": norm["mapping"],
             "mapping_confirmed": bool(norm["mapping"].get("_source", "").startswith("hand")),
             "flags": flags,
+            "missing_required": norm.get("missing_required", []),
+            "assets": norm.get("assets", []),
             "schema_errors": mode_a["schema_errors"],
             "units": mode_a["units"],
             # audit scaffolding (untouched by upload; populated by /run)
@@ -364,6 +375,8 @@ def make_underwrite_router(store) -> APIRouter:
             "mapping_confirmed": block["mapping_confirmed"],
             "sample_rows": _sample_rows(rr_xlsx), "flags": block["flags"],
             "schema_errors": block["schema_errors"], "gaps": _compute_gaps(rr_xlsx),
+            "missing_required": block.get("missing_required", []),
+            "assets": block.get("assets", []),
         }
 
     @router.post("/{deal_id}/confirm-mapping")
@@ -391,6 +404,8 @@ def make_underwrite_router(store) -> APIRouter:
         updated = _merge_underwrite(store, deal_id, {
             "status": "flagged", "asset": asset, "region": region, "rr_xlsx": rr_xlsx,
             "mapping": body.mapping, "mapping_confirmed": True, "flags": flags,
+            "missing_required": norm.get("missing_required", []),
+            "assets": norm.get("assets", []),
             "schema_errors": mode_a["schema_errors"], "units": mode_a["units"], "runs": runs,
         })
         return {
@@ -398,6 +413,8 @@ def make_underwrite_router(store) -> APIRouter:
             "units": updated["units"], "mapping": updated["mapping"],
             "sample_rows": _sample_rows(rr_xlsx), "flags": updated["flags"],
             "schema_errors": updated["schema_errors"], "gaps": _compute_gaps(rr_xlsx),
+            "missing_required": updated.get("missing_required", []),
+            "assets": updated.get("assets", []),
         }
 
     @router.post("/{deal_id}/run")
@@ -418,6 +435,17 @@ def make_underwrite_router(store) -> APIRouter:
             raise HTTPException(status_code=409, detail="Canonical RR missing; re-upload the rent roll.")
 
         assumptions = dict(body.assumptions or {})
+        # fold the dedicated request fields into the assumptions dict adapter.run_mode_b consumes
+        if body.underwrite_assumptions is not None:
+            assumptions["underwrite_assumptions"] = body.underwrite_assumptions
+        if body.pp_mode:
+            assumptions["pp_mode"] = body.pp_mode
+        if body.pp_value is not None:
+            assumptions["pp_value"] = body.pp_value
+        if body.include_assets:
+            assumptions["include_assets"] = body.include_assets
+        if body.exclude_assets:
+            assumptions["exclude_assets"] = body.exclude_assets
         entry = assumptions.get("entry_date")
         if not entry:
             raise HTTPException(status_code=422, detail="assumptions.entry_date (YYYY-MM-DD) is required.")

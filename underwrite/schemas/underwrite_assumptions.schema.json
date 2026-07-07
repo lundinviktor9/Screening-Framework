@@ -1,0 +1,73 @@
+{
+  "schema_name": "underwrite_assumptions",
+  "version": "v22",
+  "description": "Three-tier underwrite assumptions the analyst fills ONCE per deal, merged deterministically into DealRR before Mode B. Generalises (and replaces) the old flag-per-unit sign-off. Precedence is most-specific-wins: unit override > asset override > deal default. Yields/NEF/growth are decimals (0.0625 = 6.25%). Nothing here is extracted from the schedule - these are the analyst's re-letting and pricing views. A field left null keeps whatever the broker schedule carried (blank stays blank and is reported by normalise_auto.summarise_missing).",
+  "notes": "Applied by underwrite/engine/apply_assumptions.py:apply_assumptions() into a copy of the DealRR sheet, ahead of inject_deal_v21. FILL_BLANK fields only populate cells the broker left empty (never overwrite broker data). OVERRIDE fields (entry/exit yield = pricing calls) are written to every unit in scope. Deal-level erv_growth ALSO wires to Global Assumptions!D49 (the universal rental-growth cell) so it cascades centrally, matching the Newbury model. Stored on the deal record as `underwrite_assumptions`.",
+
+  "tier_precedence": ["unit", "asset", "deal"],
+
+  "field_columns": {
+    "_comment": "canonical assumption field -> DealRR column letter (field-dictionary OLD-letter scheme). Contract with inject_deal_v21.FIELD_MAP.",
+    "nef": "Q",
+    "erv_growth": "R",
+    "entry_yield": "H",
+    "exit_yield": "I",
+    "rateable_value": "V",
+    "business_rates": "W",
+    "service_charge": "X",
+    "void_mths": "Y",
+    "rent_free_mths": "Z",
+    "reletting_capex_psf": "AA",
+    "term_certain_mths": "BC"
+  },
+
+  "write_mode": {
+    "_comment": "OVERRIDE = write to every unit in scope, replacing schedule values (a deliberate analyst call). FILL_BLANK = only populate cells the broker left empty.",
+    "entry_yield": "OVERRIDE",
+    "exit_yield": "OVERRIDE",
+    "nef": "FILL_BLANK",
+    "erv_growth": "FILL_BLANK",
+    "rateable_value": "FILL_BLANK",
+    "business_rates": "FILL_BLANK",
+    "service_charge": "FILL_BLANK",
+    "void_mths": "FILL_BLANK",
+    "rent_free_mths": "FILL_BLANK",
+    "reletting_capex_psf": "FILL_BLANK",
+    "term_certain_mths": "FILL_BLANK"
+  },
+
+  "pct_fields": ["nef", "erv_growth", "entry_yield", "exit_yield"],
+
+  "deal": {
+    "description": "Deal / portfolio defaults - the base tier, applied to every unit unless a more specific tier overrides. All optional; a null keeps the schedule value.",
+    "fields": ["nef", "erv_growth", "entry_yield", "exit_yield", "void_mths", "rent_free_mths", "reletting_capex_psf", "term_certain_mths"]
+  },
+
+  "assets": {
+    "description": "Per-asset overrides keyed by EXACT asset name (must match DealRR col B / the Cash Flow Output asset register). Typically entry/exit yield per asset plus the rates/service-charge/rateable-value the analyst knows for that property.",
+    "key": "<asset name>",
+    "fields": ["entry_yield", "exit_yield", "rateable_value", "business_rates", "service_charge", "void_mths", "rent_free_mths", "reletting_capex_psf", "nef", "erv_growth", "term_certain_mths"]
+  },
+
+  "units": {
+    "description": "Per-unit overrides - only the genuinely unit-specific calls, entered as a pick-list rather than a flag on every row. Key is '<asset name>::<unit number>' (preferred) or a bare '<unit number>' when unique across the deal.",
+    "key": "<asset name>::<unit number>",
+    "fields": {
+      "break_taken": {"type": "boolean", "notes": "True => this unit exercises its break: DealRR M=1 and Event @ Expiry (O) forced to X (vacate + re-let)."},
+      "vacate_at_expiry": {"type": "boolean", "notes": "True => this unit vacates at lease end (Event @ Expiry O = X) rather than renewing."},
+      "entry_yield": {"type": "number"},
+      "exit_yield": {"type": "number"},
+      "void_mths": {"type": "number"},
+      "rent_free_mths": {"type": "number"},
+      "reletting_capex_psf": {"type": "number"},
+      "nef": {"type": "number"},
+      "erv_growth": {"type": "number"},
+      "term_certain_mths": {"type": "number"}
+    }
+  },
+
+  "ga_wiring": {
+    "_comment": "Deal-level fields that ALSO write to a Global Assumptions cell so they cascade centrally.",
+    "erv_growth": "D49"
+  }
+}
