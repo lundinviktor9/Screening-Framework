@@ -1,0 +1,1052 @@
+[
+  {
+    "id": "uk-58",
+    "name": "Tyneside",
+    "region": "North East",
+    "pillarScores": {
+      "Supply": 80,
+      "Demand": 33.3,
+      "Connectivity": 100,
+      "Labour": 65,
+      "Rents & Yields": 60,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 66.9
+  },
+  {
+    "id": "uk-05",
+    "name": "South Hampshire",
+    "region": "South East",
+    "pillarScores": {
+      "Supply": 75,
+      "Demand": 25,
+      "Connectivity": 100,
+      "Labour": 70,
+      "Rents & Yields": 65,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 66.3
+  },
+  {
+    "id": "uk-60",
+    "name": "Bristol",
+    "region": "South West",
+    "pillarScores": {
+      "Supply": 70,
+      "Demand": 25,
+      "Connectivity": 100,
+      "Labour": 75,
+      "Rents & Yields": 58.3,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 65.2
+  },
+  {
+    "id": "uk-71",
+    "name": "Greater Glasgow",
+    "region": "Scotland",
+    "pillarScores": {
+      "Supply": 75,
+      "Demand": 25,
+      "Connectivity": 95,
+      "Labour": 75,
+      "Rents & Yields": 58.3,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 65.2
+  },
+  {
+    "id": "uk-72",
+    "name": "Motherwell",
+    "region": "Scotland",
+    "pillarScores": {
+      "Supply": 75,
+      "Demand": 25,
+      "Connectivity": 95,
+      "Labour": 69.4,
+      "Rents & Yields": 60,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 64.6
+  },
+  {
+    "id": "uk-73",
+    "name": "Edinburgh",
+    "region": "Scotland",
+    "pillarScores": {
+      "Supply": 75,
+      "Demand": 33.3,
+      "Connectivity": 90,
+      "Labour": 63.9,
+      "Rents & Yields": 62.5,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 64.6
+  },
+  {
+    "id": "uk-01",
+    "name": "Greater London",
+    "region": "London",
+    "pillarScores": {
+      "Supply": 70,
+      "Demand": 33.3,
+      "Connectivity": 100,
+      "Labour": 60,
+      "Rents & Yields": 60,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 64.4
+  },
+  {
+    "id": "uk-68",
+    "name": "Cardiff",
+    "region": "Wales",
+    "pillarScores": {
+      "Supply": 70,
+      "Demand": 25,
+      "Connectivity": 100,
+      "Labour": 72.2,
+      "Rents & Yields": 54.2,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 64.1
+  },
+  {
+    "id": "uk-31",
+    "name": "Leicester",
+    "region": "East Midlands",
+    "pillarScores": {
+      "Supply": 80,
+      "Demand": 25,
+      "Connectivity": 75,
+      "Labour": 77.5,
+      "Rents & Yields": 62.5,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 63.8
+  },
+  {
+    "id": "uk-32",
+    "name": "Northampton",
+    "region": "East Midlands",
+    "pillarScores": {
+      "Supply": 70,
+      "Demand": 25,
+      "Connectivity": 80,
+      "Labour": 82.5,
+      "Rents & Yields": 62.5,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 63.8
+  },
+  {
+    "id": "uk-47",
+    "name": "Greater Manchester",
+    "region": "North West",
+    "pillarScores": {
+      "Supply": 60,
+      "Demand": 25,
+      "Connectivity": 95,
+      "Labour": 77.5,
+      "Rents & Yields": 62.5,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 63.8
+  },
+  {
+    "id": "uk-09",
+    "name": "High Wycombe",
+    "region": "South East",
+    "pillarScores": {
+      "Supply": 70,
+      "Demand": 33.3,
+      "Connectivity": 75,
+      "Labour": 75,
+      "Rents & Yields": 65,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 63.5
+  },
+  {
+    "id": "uk-48",
+    "name": "Liverpool",
+    "region": "North West",
+    "pillarScores": {
+      "Supply": 70,
+      "Demand": 25,
+      "Connectivity": 90,
+      "Labour": 75,
+      "Rents & Yields": 58.3,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 63.5
+  },
+  {
+    "id": "uk-49",
+    "name": "Preston",
+    "region": "North West",
+    "pillarScores": {
+      "Supply": 60,
+      "Demand": 33.3,
+      "Connectivity": 85,
+      "Labour": 80,
+      "Rents & Yields": 60,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 63.5
+  },
+  {
+    "id": "uk-57",
+    "name": "Sunderland",
+    "region": "North East",
+    "pillarScores": {
+      "Supply": 60,
+      "Demand": 25,
+      "Connectivity": 95,
+      "Labour": 77.5,
+      "Rents & Yields": 58.3,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 63.1
+  },
+  {
+    "id": "uk-69",
+    "name": "Newport",
+    "region": "Wales",
+    "pillarScores": {
+      "Supply": 55,
+      "Demand": 25,
+      "Connectivity": 100,
+      "Labour": 83.3,
+      "Rents & Yields": 50,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 62.8
+  },
+  {
+    "id": "uk-35",
+    "name": "Stoke-on-Trent",
+    "region": "East Midlands",
+    "pillarScores": {
+      "Supply": 75,
+      "Demand": 33.3,
+      "Connectivity": 70,
+      "Labour": 75,
+      "Rents & Yields": 60,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 62.7
+  },
+  {
+    "id": "uk-28",
+    "name": "Black Country",
+    "region": "West Midlands",
+    "pillarScores": {
+      "Supply": 80,
+      "Demand": 25,
+      "Connectivity": 80,
+      "Labour": 77.5,
+      "Rents & Yields": 50,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 62.6
+  },
+  {
+    "id": "uk-25",
+    "name": "Basildon",
+    "region": "East of England",
+    "pillarScores": {
+      "Supply": 65,
+      "Demand": 25,
+      "Connectivity": 90,
+      "Labour": 70,
+      "Rents & Yields": 62.5,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 62.5
+  },
+  {
+    "id": "uk-59",
+    "name": "Teesside",
+    "region": "North East",
+    "pillarScores": {
+      "Supply": 65,
+      "Demand": 25,
+      "Connectivity": 90,
+      "Labour": 72.5,
+      "Rents & Yields": 60,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 62.5
+  },
+  {
+    "id": "uk-40",
+    "name": "West Yorkshire (Leeds)",
+    "region": "Yorkshire & Humber",
+    "pillarScores": {
+      "Supply": 80,
+      "Demand": 25,
+      "Connectivity": 80,
+      "Labour": 75,
+      "Rents & Yields": 50,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 62.2
+  },
+  {
+    "id": "uk-34",
+    "name": "Nottingham",
+    "region": "East Midlands",
+    "pillarScores": {
+      "Supply": 65,
+      "Demand": 25,
+      "Connectivity": 85,
+      "Labour": 70,
+      "Rents & Yields": 62.5,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 61.7
+  },
+  {
+    "id": "uk-50",
+    "name": "Wigan",
+    "region": "North West",
+    "pillarScores": {
+      "Supply": 65,
+      "Demand": 25,
+      "Connectivity": 80,
+      "Labour": 77.5,
+      "Rents & Yields": 60,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 61.7
+  },
+  {
+    "id": "uk-52",
+    "name": "Blackburn",
+    "region": "North West",
+    "pillarScores": {
+      "Supply": 65,
+      "Demand": 25,
+      "Connectivity": 85,
+      "Labour": 72.5,
+      "Rents & Yields": 60,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 61.7
+  },
+  {
+    "id": "uk-62",
+    "name": "Bournemouth/Poole",
+    "region": "South West",
+    "pillarScores": {
+      "Supply": 75,
+      "Demand": 25,
+      "Connectivity": 90,
+      "Labour": 62.5,
+      "Rents & Yields": 55,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 61.7
+  },
+  {
+    "id": "uk-12",
+    "name": "Medway Towns",
+    "region": "South East",
+    "pillarScores": {
+      "Supply": 55,
+      "Demand": 33.3,
+      "Connectivity": 85,
+      "Labour": 67.5,
+      "Rents & Yields": 65,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 61.3
+  },
+  {
+    "id": "uk-56",
+    "name": "Birkenhead",
+    "region": "North West",
+    "pillarScores": {
+      "Supply": 60,
+      "Demand": 25,
+      "Connectivity": 95,
+      "Labour": 65,
+      "Rents & Yields": 60,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 61.3
+  },
+  {
+    "id": "uk-29",
+    "name": "Coventry",
+    "region": "West Midlands",
+    "pillarScores": {
+      "Supply": 60,
+      "Demand": 25,
+      "Connectivity": 85,
+      "Labour": 80,
+      "Rents & Yields": 54.2,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 61.2
+  },
+  {
+    "id": "uk-54",
+    "name": "Accrington/Rossendale",
+    "region": "North West",
+    "pillarScores": {
+      "Supply": 55,
+      "Demand": 33.3,
+      "Connectivity": 85,
+      "Labour": 70,
+      "Rents & Yields": 60,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 61
+  },
+  {
+    "id": "uk-10",
+    "name": "Basingstoke",
+    "region": "South East",
+    "pillarScores": {
+      "Supply": 50,
+      "Demand": 25,
+      "Connectivity": 90,
+      "Labour": 70,
+      "Rents & Yields": 66.7,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 60.6
+  },
+  {
+    "id": "uk-14",
+    "name": "Farnborough/Aldershot",
+    "region": "South East",
+    "pillarScores": {
+      "Supply": 35,
+      "Demand": 41.7,
+      "Connectivity": 80,
+      "Labour": 77.5,
+      "Rents & Yields": 65,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 60.2
+  },
+  {
+    "id": "uk-27",
+    "name": "Birmingham/Solihull",
+    "region": "West Midlands",
+    "pillarScores": {
+      "Supply": 80,
+      "Demand": 25,
+      "Connectivity": 80,
+      "Labour": 62.5,
+      "Rents & Yields": 50,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 60.1
+  },
+  {
+    "id": "uk-30",
+    "name": "Telford",
+    "region": "West Midlands",
+    "pillarScores": {
+      "Supply": 60,
+      "Demand": 25,
+      "Connectivity": 70,
+      "Labour": 92.5,
+      "Rents & Yields": 50,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 60.1
+  },
+  {
+    "id": "uk-41",
+    "name": "Sheffield",
+    "region": "Yorkshire & Humber",
+    "pillarScores": {
+      "Supply": 75,
+      "Demand": 25,
+      "Connectivity": 80,
+      "Labour": 67.5,
+      "Rents & Yields": 50,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 60.1
+  },
+  {
+    "id": "uk-06",
+    "name": "Milton Keynes",
+    "region": "South East",
+    "pillarScores": {
+      "Supply": 55,
+      "Demand": 25,
+      "Connectivity": 75,
+      "Labour": 75,
+      "Rents & Yields": 66.7,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 59.8
+  },
+  {
+    "id": "uk-36",
+    "name": "Chesterfield",
+    "region": "East Midlands",
+    "pillarScores": {
+      "Supply": 60,
+      "Demand": 25,
+      "Connectivity": 80,
+      "Labour": 70,
+      "Rents & Yields": 60,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 59.6
+  },
+  {
+    "id": "uk-04",
+    "name": "Maidstone",
+    "region": "South East",
+    "pillarScores": {
+      "Supply": 50,
+      "Demand": 25,
+      "Connectivity": 80,
+      "Labour": 75,
+      "Rents & Yields": 65,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 59.5
+  },
+  {
+    "id": "uk-75",
+    "name": "Dundee",
+    "region": "Scotland",
+    "pillarScores": {
+      "Supply": 75,
+      "Demand": 33.3,
+      "Connectivity": 65,
+      "Labour": 61.1,
+      "Rents & Yields": 60,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 59.5
+  },
+  {
+    "id": "uk-19",
+    "name": "Peterborough",
+    "region": "East of England",
+    "pillarScores": {
+      "Supply": 60,
+      "Demand": 33.3,
+      "Connectivity": 70,
+      "Labour": 72.5,
+      "Rents & Yields": 58.3,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 59.4
+  },
+  {
+    "id": "uk-07",
+    "name": "Slough",
+    "region": "South East",
+    "pillarScores": {
+      "Supply": 35,
+      "Demand": 33.3,
+      "Connectivity": 80,
+      "Labour": 75,
+      "Rents & Yields": 70.8,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 59.3
+  },
+  {
+    "id": "uk-33",
+    "name": "Derby",
+    "region": "East Midlands",
+    "pillarScores": {
+      "Supply": 55,
+      "Demand": 25,
+      "Connectivity": 75,
+      "Labour": 75,
+      "Rents & Yields": 62.5,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 59.1
+  },
+  {
+    "id": "uk-44",
+    "name": "Barnsley/Dearne Valley",
+    "region": "Yorkshire & Humber",
+    "pillarScores": {
+      "Supply": 60,
+      "Demand": 25,
+      "Connectivity": 80,
+      "Labour": 75,
+      "Rents & Yields": 50,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 58.8
+  },
+  {
+    "id": "uk-39",
+    "name": "Burton-upon-Trent",
+    "region": "East Midlands",
+    "pillarScores": {
+      "Supply": 55,
+      "Demand": 25,
+      "Connectivity": 75,
+      "Labour": 75,
+      "Rents & Yields": 60,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 58.7
+  },
+  {
+    "id": "uk-45",
+    "name": "Doncaster",
+    "region": "Yorkshire & Humber",
+    "pillarScores": {
+      "Supply": 65,
+      "Demand": 25,
+      "Connectivity": 75,
+      "Labour": 72.5,
+      "Rents & Yields": 50,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 58.4
+  },
+  {
+    "id": "uk-18",
+    "name": "Chelmsford",
+    "region": "East of England",
+    "pillarScores": {
+      "Supply": 65,
+      "Demand": 25,
+      "Connectivity": 75,
+      "Labour": 62.5,
+      "Rents & Yields": 60,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 58.3
+  },
+  {
+    "id": "uk-23",
+    "name": "Bedford",
+    "region": "East of England",
+    "pillarScores": {
+      "Supply": 50,
+      "Demand": 25,
+      "Connectivity": 75,
+      "Labour": 77.5,
+      "Rents & Yields": 60,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 58.3
+  },
+  {
+    "id": "uk-70",
+    "name": "Swansea",
+    "region": "Wales",
+    "pillarScores": {
+      "Supply": 60,
+      "Demand": 25,
+      "Connectivity": 85,
+      "Labour": 61.1,
+      "Rents & Yields": 55,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 58.1
+  },
+  {
+    "id": "uk-11",
+    "name": "Brighton & Hove",
+    "region": "South East",
+    "pillarScores": {
+      "Supply": 60,
+      "Demand": 33.3,
+      "Connectivity": 70,
+      "Labour": 57.5,
+      "Rents & Yields": 65,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 57.9
+  },
+  {
+    "id": "uk-24",
+    "name": "Luton",
+    "region": "East of England",
+    "pillarScores": {
+      "Supply": 50,
+      "Demand": 25,
+      "Connectivity": 75,
+      "Labour": 75,
+      "Rents & Yields": 60,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 57.9
+  },
+  {
+    "id": "uk-26",
+    "name": "Southend-on-Sea",
+    "region": "East of England",
+    "pillarScores": {
+      "Supply": 65,
+      "Demand": 25,
+      "Connectivity": 75,
+      "Labour": 55,
+      "Rents & Yields": 62.5,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 57.4
+  },
+  {
+    "id": "uk-37",
+    "name": "Mansfield",
+    "region": "East Midlands",
+    "pillarScores": {
+      "Supply": 55,
+      "Demand": 25,
+      "Connectivity": 70,
+      "Labour": 72.5,
+      "Rents & Yields": 60,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 57.4
+  },
+  {
+    "id": "uk-38",
+    "name": "Lincoln",
+    "region": "East Midlands",
+    "pillarScores": {
+      "Supply": 55,
+      "Demand": 25,
+      "Connectivity": 75,
+      "Labour": 67.5,
+      "Rents & Yields": 60,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 57.4
+  },
+  {
+    "id": "uk-51",
+    "name": "Burnley",
+    "region": "North West",
+    "pillarScores": {
+      "Supply": 45,
+      "Demand": 25,
+      "Connectivity": 80,
+      "Labour": 72.5,
+      "Rents & Yields": 60,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 57.4
+  },
+  {
+    "id": "uk-53",
+    "name": "Warrington",
+    "region": "North West",
+    "pillarScores": {
+      "Supply": 55,
+      "Demand": 25,
+      "Connectivity": 75,
+      "Labour": 65,
+      "Rents & Yields": 62.5,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 57.4
+  },
+  {
+    "id": "uk-22",
+    "name": "Colchester",
+    "region": "East of England",
+    "pillarScores": {
+      "Supply": 55,
+      "Demand": 25,
+      "Connectivity": 65,
+      "Labour": 77.5,
+      "Rents & Yields": 58.3,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 57.2
+  },
+  {
+    "id": "uk-46",
+    "name": "Kingston upon Hull",
+    "region": "Yorkshire & Humber",
+    "pillarScores": {
+      "Supply": 60,
+      "Demand": 25,
+      "Connectivity": 85,
+      "Labour": 60,
+      "Rents & Yields": 50,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 57.1
+  },
+  {
+    "id": "uk-03",
+    "name": "Reading",
+    "region": "South East",
+    "pillarScores": {
+      "Supply": 40,
+      "Demand": 25,
+      "Connectivity": 75,
+      "Labour": 70,
+      "Rents & Yields": 70.8,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 57
+  },
+  {
+    "id": "uk-74",
+    "name": "Aberdeen",
+    "region": "Scotland",
+    "pillarScores": {
+      "Supply": 75,
+      "Demand": 25,
+      "Connectivity": 70,
+      "Labour": 50,
+      "Rents & Yields": 60,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 57
+  },
+  {
+    "id": "uk-66",
+    "name": "Swindon",
+    "region": "South West",
+    "pillarScores": {
+      "Supply": 50,
+      "Demand": 25,
+      "Connectivity": 75,
+      "Labour": 75,
+      "Rents & Yields": 54.2,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 56.9
+  },
+  {
+    "id": "uk-64",
+    "name": "Exeter",
+    "region": "South West",
+    "pillarScores": {
+      "Supply": 45,
+      "Demand": 25,
+      "Connectivity": 80,
+      "Labour": 72.5,
+      "Rents & Yields": 55,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 56.6
+  },
+  {
+    "id": "uk-63",
+    "name": "Gloucester",
+    "region": "South West",
+    "pillarScores": {
+      "Supply": 50,
+      "Demand": 25,
+      "Connectivity": 75,
+      "Labour": 70,
+      "Rents & Yields": 54.2,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 56.1
+  },
+  {
+    "id": "uk-16",
+    "name": "Thanet",
+    "region": "South East",
+    "pillarScores": {
+      "Supply": 60,
+      "Demand": 33.3,
+      "Connectivity": 70,
+      "Labour": 45,
+      "Rents & Yields": 65,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 55.8
+  },
+  {
+    "id": "uk-55",
+    "name": "Blackpool",
+    "region": "North West",
+    "pillarScores": {
+      "Supply": 50,
+      "Demand": 25,
+      "Connectivity": 80,
+      "Labour": 57.5,
+      "Rents & Yields": 60,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 55.7
+  },
+  {
+    "id": "uk-61",
+    "name": "Cheltenham",
+    "region": "South West",
+    "pillarScores": {
+      "Supply": 50,
+      "Demand": 25,
+      "Connectivity": 75,
+      "Labour": 62.5,
+      "Rents & Yields": 55,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 54.9
+  },
+  {
+    "id": "uk-65",
+    "name": "Plymouth",
+    "region": "South West",
+    "pillarScores": {
+      "Supply": 55,
+      "Demand": 25,
+      "Connectivity": 65,
+      "Labour": 65,
+      "Rents & Yields": 55,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 54.5
+  },
+  {
+    "id": "uk-20",
+    "name": "Ipswich",
+    "region": "East of England",
+    "pillarScores": {
+      "Supply": 45,
+      "Demand": 25,
+      "Connectivity": 75,
+      "Labour": 60,
+      "Rents & Yields": 58.3,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 54.2
+  },
+  {
+    "id": "uk-02",
+    "name": "Crawley",
+    "region": "South East",
+    "pillarScores": {
+      "Supply": 30,
+      "Demand": 25,
+      "Connectivity": 80,
+      "Labour": 55,
+      "Rents & Yields": 70.8,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 53.6
+  },
+  {
+    "id": "uk-17",
+    "name": "Norwich",
+    "region": "East of England",
+    "pillarScores": {
+      "Supply": 50,
+      "Demand": 25,
+      "Connectivity": 65,
+      "Labour": 60,
+      "Rents & Yields": 60,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 53.6
+  },
+  {
+    "id": "uk-42",
+    "name": "Grimsby",
+    "region": "Yorkshire & Humber",
+    "pillarScores": {
+      "Supply": 50,
+      "Demand": 25,
+      "Connectivity": 80,
+      "Labour": 52.5,
+      "Rents & Yields": 50,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 53.3
+  },
+  {
+    "id": "uk-15",
+    "name": "Oxford",
+    "region": "South East",
+    "pillarScores": {
+      "Supply": 35,
+      "Demand": 25,
+      "Connectivity": 75,
+      "Labour": 57.5,
+      "Rents & Yields": 65,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 53.1
+  },
+  {
+    "id": "uk-43",
+    "name": "York",
+    "region": "Yorkshire & Humber",
+    "pillarScores": {
+      "Supply": 55,
+      "Demand": 25,
+      "Connectivity": 65,
+      "Labour": 60,
+      "Rents & Yields": 50,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 52.9
+  },
+  {
+    "id": "uk-21",
+    "name": "Cambridge",
+    "region": "East of England",
+    "pillarScores": {
+      "Supply": 45,
+      "Demand": 33.3,
+      "Connectivity": 55,
+      "Labour": 55,
+      "Rents & Yields": 60,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 51.6
+  },
+  {
+    "id": "uk-67",
+    "name": "Torquay/Paignton",
+    "region": "South West",
+    "pillarScores": {
+      "Supply": 50,
+      "Demand": 25,
+      "Connectivity": 65,
+      "Labour": 52.5,
+      "Rents & Yields": 55,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 51.5
+  },
+  {
+    "id": "uk-08",
+    "name": "Hastings",
+    "region": "South East",
+    "pillarScores": {
+      "Supply": 45,
+      "Demand": 25,
+      "Connectivity": 50,
+      "Labour": 55,
+      "Rents & Yields": 65,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 50.2
+  },
+  {
+    "id": "uk-13",
+    "name": "Eastbourne",
+    "region": "South East",
+    "pillarScores": {
+      "Supply": 40,
+      "Demand": 25,
+      "Connectivity": 40,
+      "Labour": 47.5,
+      "Rents & Yields": 65,
+      "Strategic / Risk": 62.5
+    },
+    "compositeScore": 46.3
+  }
+]

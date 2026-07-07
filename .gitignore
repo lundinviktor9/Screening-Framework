@@ -1,0 +1,59 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+.env
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Deal pipeline (extractor + inbox)
+extractor/.env
+extractor/__pycache__/
+extractor/**/__pycache__/
+deals_inbox/*.pdf
+deals_inbox/*.PDF
+
+# VOA raw data — too large for git, regenerate via voa_scraper.py
+scrapers/data/voa/
+
+# Scraper caches (regeneratable)
+scrapers/config/gilt_yield_cache.json
+public/data/gilt_yield_cache.json
+
+# Debug outputs
+boe_debug.html
+*.lock
+
+# Python
+__pycache__/
+*.pyc
+
+# Generated underwrite run artifacts (xlsx models, LibreOffice profiles) — never commit
+extractor/underwrite_runs/
+
+# Ingested IM PDFs (confidential broker material) — never commit
+extractor/pdfs_ingested/
+
+# LibreOffice scratch dir from local testing
+test_workdir/
+
+# Windows folder metadata
+desktop.ini

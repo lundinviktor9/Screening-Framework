@@ -1,0 +1,42 @@
+# Build context excludes — keep the image lean and the build deterministic.
+
+# Node / build output (npm ci regenerates node_modules; webpack rebuilds dist)
+node_modules
+dist
+dist-ssr
+static
+
+# Python caches / local virtualenvs
+__pycache__
+**/__pycache__
+*.pyc
+.venv
+venv
+*.egg-info
+
+# Secrets — never bake into the image (set as Railway env vars instead)
+.env
+extractor/.env
+
+# Mutable runtime state (lives on the DATA_DIR volume at runtime)
+extractor/underwrite_runs
+extractor/showcase_img
+extractor/pdfs_ingested
+deals_inbox
+
+# Large source material not needed in the image
+scrapers/pdfs
+scrapers/output
+
+# VCS / editor / OS cruft
+.git
+.gitignore
+.vscode
+.idea
+*.log
+.DS_Store
+Thumbs.db
+
+# Docs (not needed at runtime)
+docs
+*.md

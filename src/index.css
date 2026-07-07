@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── shadcn/ui design tokens — single source of truth ──
+   Values are HSL triples (no hsl() wrapper) consumed via hsl(var(--token)). */
+@layer base {
+  :root {
+    --background: 270 13% 97%;      /* #F7F6F8 page */
+    --foreground: 0 0% 12%;         /* #1F1F1F ink */
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 12%;
+
+    --primary: 300 16% 42%;         /* #7D5A7D brand purple */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 300 20% 94%;
+    --secondary-foreground: 300 16% 28%;
+
+    --muted: 280 13% 94%;
+    --muted-foreground: 240 5% 44%; /* #6B6B76 */
+
+    --accent: 300 22% 88%;          /* #E6DCE6 brand light */
+    --accent-foreground: 300 16% 28%;
+
+    --destructive: 0 61% 48%;       /* #C53030 */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 276 11% 90%;          /* #E5E2E8 */
+    --input: 276 11% 90%;
+    --ring: 300 16% 42%;
+
+    --radius: 0.5rem;
+
+    /* sidebar — purple brand surface */
+    --sidebar-background: 300 16% 42%;
+    --sidebar-foreground: 300 18% 92%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 300 16% 42%;
+    --sidebar-accent: 300 16% 35%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 300 14% 35%;
+    --sidebar-ring: 300 30% 72%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+}
+
+body {
+  margin: 0;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #ede9f8; }
+::-webkit-scrollbar-thumb { background: #b8a9d9; border-radius: 3px; }
+
+/* ── Leaflet permanent label styles (Newmark regional zones + micro-locations) ── */
+
+/* Regional zone centroid labels: no box, no arrow, drop-shadow text */
+.leaflet-tooltip.region-label-tooltip {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(30, 58, 138, 0.25);
+  border-radius: 6px;
+  padding: 4px 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.leaflet-tooltip.region-label-tooltip::before { display: none; }
+
+/* Micro-location dot labels: centered inside the circle, no chrome */
+.leaflet-tooltip.micro-location-label {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.leaflet-tooltip.micro-location-label::before { display: none; }
+
+/* Newmark micro-location pill (zoom-gated: only shown at zoom >= 8) */
+.mloc-pill-wrap { pointer-events: auto; }
+.mloc-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #ffffff;
+  border: 1.5px solid #1e3a8a;
+  border-radius: 10px;
+  padding: 1px 6px 1px 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: #1e3a8a;
+  white-space: nowrap;
+  line-height: 1.2;
+  /* centre the pill on the anchor point */
+  transform: translate(-50%, -50%);
+  font-variant-numeric: tabular-nums;
+}
+.mloc-pill-dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #1e3a8a;
+  flex-shrink: 0;
+}
+.mloc-pill-value { letter-spacing: 0.1px; }

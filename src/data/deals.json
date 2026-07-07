@@ -1,0 +1,1993 @@
+[
+  {
+    "deal_id": "be133cc37e1816b9",
+    "status": "extracted",
+    "pdf_hash": "be133cc37e1816b9b81b067d7943515d735cc776b138c72a5ddc973da31d7f4f",
+    "source_filename": "be133cc37e1816b9.pdf",
+    "extracted_fields": {
+      "Type": "IM",
+      "Project Name": "West Craigs Industrial Estate",
+      "Country": "United Kingdom",
+      "Location": "Edinburgh",
+      "Portfolio": "No",
+      "Address": "Turnhouse Road",
+      "Postal code": "EH12 0BD",
+      "Year Built": "2001",
+      "Number of Tenants": 18,
+      "Leasable area, sq ft": 67018,
+      "NOI, CCY": 662109,
+      "WAULT, years": 5,
+      "Economic occupancy rate, %": "100%",
+      "Yield": 7.0,
+      "Deal value, CCY": 8870000,
+      "Yield2": 8.14,
+      "Comment": "Reversionary multi-let industrial estate with significant asset management opportunities and strong rental growth potential."
+    },
+    "market_ids": [
+      "uk-73"
+    ],
+    "market_match_confidence": 1.0,
+    "microlocation_fit_score": 64.6,
+    "microlocation_narrative": "uk-73 ranks strongly on Connectivity (score 90) and Supply (score 75).",
+    "narrative_detail": {
+      "uk-73": {
+        "fit_score": 64.6,
+        "narrative": "uk-73 ranks strongly on Connectivity (score 90) and Supply (score 75).",
+        "top_pillars": [
+          [
+            "Connectivity",
+            90
+          ],
+          [
+            "Supply",
+            75
+          ]
+        ]
+      }
+    },
+    "created_at": "2026-04-22T07:50:08.880109Z",
+    "updated_at": "2026-07-07T11:21:45.373625Z"
+  },
+  {
+    "deal_id": "bef9beb3fedf43e5",
+    "status": "extracted",
+    "pdf_hash": "bef9beb3fedf43e56abffb01513f90ddd369df098e335df875bb93beaaf66803",
+    "source_filename": "temp_Canon Industrial Park, Milton Keynes - IM.pdf",
+    "extracted_fields": {
+      "Type": "IM",
+      "Project Name": "Canon Industrial Park",
+      "Country": "United Kingdom",
+      "Location": "Milton Keynes",
+      "Portfolio": "No",
+      "Address": "Old Wolverton Road, Wolverton",
+      "Postal code": "MK12 5NA",
+      "Year Built": "1980s-1989",
+      "Number of Tenants": 22,
+      "Leasable area, sq ft": 191971,
+      "Base rent incl. index, CCY/sqft": 10,
+      "NOI, CCY": 1868453,
+      "WAULT, years": 4,
+      "Economic occupancy rate, %": "100%",
+      "Yield": 6.25,
+      "Deal value, CCY": 28000000,
+      "Yield2": 7.5,
+      "Comment": "Highly reversionary South East industrial estate with significant quantum and rental growth potential."
+    },
+    "market_ids": [
+      "uk-06"
+    ],
+    "market_match_confidence": 1.0,
+    "microlocation_fit_score": 59.8,
+    "microlocation_narrative": "uk-06 ranks strongly on Connectivity (score 75) and Labour (score 75).",
+    "narrative_detail": {
+      "uk-06": {
+        "fit_score": 59.8,
+        "narrative": "uk-06 ranks strongly on Connectivity (score 75) and Labour (score 75).",
+        "top_pillars": [
+          [
+            "Connectivity",
+            75
+          ],
+          [
+            "Labour",
+            75
+          ]
+        ]
+      }
+    },
+    "created_at": "2026-05-11T11:59:44.756422Z",
+    "updated_at": "2026-06-11T12:09:09.292363Z",
+    "underwrite": {
+      "status": "underwritten",
+      "asset": "Canon Industrial Park",
+      "region": "Milton Keynes",
+      "raw_path": "C:\\Screening Framework\\extractor\\underwrite_runs\\bef9beb3fedf43e5\\raw_cannon TS.xlsx",
+      "rr_xlsx": "C:\\Screening Framework\\extractor\\underwrite_runs\\bef9beb3fedf43e5\\canonical_rr.xlsx",
+      "rr_sheet": "DealRR",
+      "mapping": {
+        "_source": "hand:cannon",
+        "sheet": "Cannon Ind."
+      },
+      "mapping_confirmed": true,
+      "flags": [
+        {
+          "unit": "3A Deans Road",
+          "signal": "break_taken",
+          "needs_signoff": true,
+          "note": "vacate + re-let",
+          "rationale": "Whether the tenant exercises the break is an assumption about future behaviour that materially changes the cashflow and re-letting profile.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-06-11T00:02:43.396658Z"
+          }
+        },
+        {
+          "unit": "3C Deans Road",
+          "signal": "vacate@expiry",
+          "needs_signoff": true,
+          "note": "re-let",
+          "rationale": "Assuming the tenant vacates at expiry (vs renews) drives void/re-let costs and the income profile - a forward-looking judgement.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-06-11T00:02:43.396675Z"
+          }
+        },
+        {
+          "unit": "4 Deans Road",
+          "signal": "break_taken",
+          "needs_signoff": true,
+          "note": "vacate + re-let",
+          "rationale": "Whether the tenant exercises the break is an assumption about future behaviour that materially changes the cashflow and re-letting profile.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-06-11T00:02:43.396683Z"
+          }
+        },
+        {
+          "unit": "5 Deans Road",
+          "signal": "under_offer",
+          "needs_signoff": true,
+          "note": "let from entry, 5yr term",
+          "rationale": "An agreed-but-not-completed letting; whether and when to recognise the income is a judgement on deal certainty.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-06-11T00:02:43.396691Z"
+          }
+        },
+        {
+          "unit": "7 Deans Road",
+          "signal": "vacant@entry",
+          "needs_signoff": true,
+          "note": "cap on ERV; deduct guarantee off PP; re-let I8/I9",
+          "rationale": "Vacant units carry no contractual income; value depends on the analyst's view of headline/guarantee rent and the re-letting (void/rent-free/capex) assumptions - a pricing judgement, not a fact in the schedule.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-06-11T00:02:43.396698Z"
+          }
+        },
+        {
+          "unit": "15A Deans Road",
+          "signal": "vacate@expiry",
+          "needs_signoff": true,
+          "note": "re-let",
+          "rationale": "Assuming the tenant vacates at expiry (vs renews) drives void/re-let costs and the income profile - a forward-looking judgement.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-06-11T00:02:43.396706Z"
+          }
+        },
+        {
+          "unit": "3 Canons Road",
+          "signal": "vacate@expiry",
+          "needs_signoff": true,
+          "note": "re-let",
+          "rationale": "Assuming the tenant vacates at expiry (vs renews) drives void/re-let costs and the income profile - a forward-looking judgement.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-06-11T00:02:43.396713Z"
+          }
+        },
+        {
+          "unit": "5 & 6 Canons Road",
+          "signal": "vacate@expiry",
+          "needs_signoff": true,
+          "note": "re-let",
+          "rationale": "Assuming the tenant vacates at expiry (vs renews) drives void/re-let costs and the income profile - a forward-looking judgement.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-06-11T00:02:43.396720Z"
+          }
+        },
+        {
+          "unit": "8 Canons Road",
+          "signal": "break_taken",
+          "needs_signoff": true,
+          "note": "vacate + re-let",
+          "rationale": "Whether the tenant exercises the break is an assumption about future behaviour that materially changes the cashflow and re-letting profile.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-06-11T00:02:43.396727Z"
+          }
+        },
+        {
+          "unit": "9 Canons Road",
+          "signal": "vacant@entry",
+          "needs_signoff": true,
+          "note": "cap on ERV; deduct guarantee off PP; re-let I8/I9",
+          "rationale": "Vacant units carry no contractual income; value depends on the analyst's view of headline/guarantee rent and the re-letting (void/rent-free/capex) assumptions - a pricing judgement, not a fact in the schedule.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-06-11T00:02:43.396734Z"
+          }
+        },
+        {
+          "unit": "12 Canons Road",
+          "signal": "break_taken",
+          "needs_signoff": true,
+          "note": "vacate + re-let",
+          "rationale": "Whether the tenant exercises the break is an assumption about future behaviour that materially changes the cashflow and re-letting profile.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-06-11T00:02:43.396741Z"
+          }
+        },
+        {
+          "unit": "3A Deans Road",
+          "signal": "break_taken",
+          "treatment": "break exercised -> vacate + re-let; suppress post-break review",
+          "needs_signoff": true,
+          "rationale": "Whether the tenant exercises the break is an assumption about future behaviour that materially changes the cashflow and re-letting profile.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-06-11T00:02:43.396748Z"
+          }
+        },
+        {
+          "unit": "4 Deans Road",
+          "signal": "break_taken",
+          "treatment": "break exercised -> vacate + re-let; suppress post-break review",
+          "needs_signoff": true,
+          "rationale": "Whether the tenant exercises the break is an assumption about future behaviour that materially changes the cashflow and re-letting profile.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-06-11T00:02:43.396754Z"
+          }
+        },
+        {
+          "unit": "5 Deans Road",
+          "signal": "under_offer",
+          "treatment": "let from agreed start on agreed rent/term",
+          "needs_signoff": true,
+          "rationale": "An agreed-but-not-completed letting; whether and when to recognise the income is a judgement on deal certainty.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-06-11T00:02:43.396760Z"
+          }
+        },
+        {
+          "unit": "7 Deans Road",
+          "signal": "vacant@entry",
+          "treatment": "capitalise guarantee/headline rent; re-let at void/RF defaults",
+          "needs_signoff": true,
+          "rationale": "Vacant units carry no contractual income; value depends on the analyst's view of headline/guarantee rent and the re-letting (void/rent-free/capex) assumptions - a pricing judgement, not a fact in the schedule.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-06-11T00:02:43.396767Z"
+          }
+        },
+        {
+          "unit": "8 Canons Road",
+          "signal": "break_taken",
+          "treatment": "break exercised -> vacate + re-let; suppress post-break review",
+          "needs_signoff": true,
+          "rationale": "Whether the tenant exercises the break is an assumption about future behaviour that materially changes the cashflow and re-letting profile.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-06-11T00:02:43.396773Z"
+          }
+        },
+        {
+          "unit": "9 Canons Road",
+          "signal": "vacant@entry",
+          "treatment": "capitalise guarantee/headline rent; re-let at void/RF defaults",
+          "needs_signoff": true,
+          "rationale": "Vacant units carry no contractual income; value depends on the analyst's view of headline/guarantee rent and the re-letting (void/rent-free/capex) assumptions - a pricing judgement, not a fact in the schedule.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-06-11T00:02:43.396780Z"
+          }
+        },
+        {
+          "unit": "12 Canons Road",
+          "signal": "break_taken",
+          "treatment": "break exercised -> vacate + re-let; suppress post-break review",
+          "needs_signoff": true,
+          "rationale": "Whether the tenant exercises the break is an assumption about future behaviour that materially changes the cashflow and re-letting profile.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-06-11T00:02:43.396787Z"
+          }
+        }
+      ],
+      "schema_errors": [],
+      "units": 28,
+      "baseline": {
+        "at": "2026-06-10T17:15:36.917585Z",
+        "assumptions": {
+          "entry_date": "2026-06-01",
+          "hold_years": 5,
+          "exit_yield": 0.0625,
+          "rental_growth": 0.045,
+          "ltv": 0,
+          "scenario": 1
+        },
+        "returns": {
+          "unlevered_irr": 0.148573133984107,
+          "net_investor_irr": 0.104316619706743,
+          "levered_irr": 0.115437683139766,
+          "equity_multiple": 1.65508822795602,
+          "cash_on_cash": 0.070342580420627,
+          "net_exit_price": 39.1044717988999,
+          "net_purchase_price": 24130876.2753455
+        },
+        "checks": {
+          "pass": true,
+          "anchor_tieout_ok": true,
+          "workbook_error_cells": 0
+        },
+        "version": 1
+      },
+      "runs": [
+        {
+          "version": 1,
+          "type": "run",
+          "at": "2026-06-10T17:15:36.917585Z",
+          "analyst": "cli-proof",
+          "is_baseline": true,
+          "assumptions": {
+            "entry_date": "2026-06-01",
+            "hold_years": 5,
+            "exit_yield": 0.0625,
+            "rental_growth": 0.045,
+            "ltv": 0,
+            "scenario": 1
+          },
+          "vs_previous": {
+            "rental_growth": {
+              "from": null,
+              "to": 0.045
+            },
+            "exit_yield": {
+              "from": null,
+              "to": 0.0625
+            },
+            "hold_years": {
+              "from": null,
+              "to": 5
+            },
+            "entry_date": {
+              "from": null,
+              "to": "2026-06-01"
+            },
+            "ltv": {
+              "from": null,
+              "to": 0
+            },
+            "scenario": {
+              "from": null,
+              "to": 1
+            }
+          },
+          "vs_baseline": {
+            "rental_growth": {
+              "from": null,
+              "to": 0.045
+            },
+            "exit_yield": {
+              "from": null,
+              "to": 0.0625
+            },
+            "hold_years": {
+              "from": null,
+              "to": 5
+            },
+            "entry_date": {
+              "from": null,
+              "to": "2026-06-01"
+            },
+            "ltv": {
+              "from": null,
+              "to": 0
+            },
+            "scenario": {
+              "from": null,
+              "to": 1
+            }
+          },
+          "flag_resolutions": [],
+          "returns": {
+            "unlevered_irr": 0.148573133984107,
+            "net_investor_irr": 0.104316619706743,
+            "levered_irr": 0.115437683139766,
+            "equity_multiple": 1.65508822795602,
+            "cash_on_cash": 0.070342580420627,
+            "net_exit_price": 39.1044717988999,
+            "net_purchase_price": 24130876.2753455,
+            "cfo": {
+              "scenario_label": null,
+              "unlevered": {
+                "irr": 0.148573133984107,
+                "em": 1.88082276430859,
+                "coc_y5": 0.070342580420627,
+                "profit": 22.6395792392652,
+                "equity": 25.8347943070467
+              },
+              "levered": {
+                "irr": 0.115437683139766,
+                "em": 1.65508822795602,
+                "coc_y5": 0.0620200716509781,
+                "profit": 16.9456673842507,
+                "equity": 25.7027635486197
+              },
+              "assumptions_table": {
+                "net_purchase_price": 24130876.2753455
+              },
+              "source": {
+                "sheet": "Cash Flow Output",
+                "unlevered_col": "L",
+                "levered_col": "J",
+                "resolved_by": "label",
+                "row_map": {
+                  "equity": 16,
+                  "unlev_irr": 17,
+                  "lev_irr": 18,
+                  "em": 19,
+                  "coc": 20,
+                  "profit": 21
+                }
+              }
+            }
+          },
+          "checks": {
+            "pass": true,
+            "anchor_tieout_ok": true,
+            "workbook_error_cells": 0
+          },
+          "assumption_notes": [],
+          "note": "direct CLI proof, bypassing browser",
+          "model_xlsx": "C:\\Screening Framework\\extractor\\underwrite_runs\\bef9beb3fedf43e5\\run_20260610T171453Z\\model.xlsx",
+          "passed": true
+        },
+        {
+          "version": 2,
+          "type": "run",
+          "at": "2026-06-11T00:02:43.396508Z",
+          "analyst": null,
+          "is_baseline": false,
+          "assumptions": {
+            "entry_date": "2026-06-30",
+            "hold_years": 5,
+            "entry_yield": 0.0725,
+            "exit_yield": 0.0525,
+            "rental_growth": 0.045,
+            "ltv": 0.6,
+            "scenario": 1
+          },
+          "vs_previous": {
+            "ltv": {
+              "from": 0,
+              "to": 0.6
+            },
+            "entry_yield": {
+              "from": null,
+              "to": 0.0725
+            },
+            "exit_yield": {
+              "from": 0.0625,
+              "to": 0.0525
+            },
+            "entry_date": {
+              "from": "2026-06-01",
+              "to": "2026-06-30"
+            }
+          },
+          "vs_baseline": {
+            "ltv": {
+              "from": 0,
+              "to": 0.6
+            },
+            "entry_yield": {
+              "from": null,
+              "to": 0.0725
+            },
+            "exit_yield": {
+              "from": 0.0625,
+              "to": 0.0525
+            },
+            "entry_date": {
+              "from": "2026-06-01",
+              "to": "2026-06-30"
+            }
+          },
+          "flag_resolutions": [
+            {
+              "unit": "3A Deans Road",
+              "signal": "break_taken",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "3C Deans Road",
+              "signal": "vacate@expiry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "4 Deans Road",
+              "signal": "break_taken",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "5 Deans Road",
+              "signal": "under_offer",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "7 Deans Road",
+              "signal": "vacant@entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "15A Deans Road",
+              "signal": "vacate@expiry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "3 Canons Road",
+              "signal": "vacate@expiry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "5 & 6 Canons Road",
+              "signal": "vacate@expiry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "8 Canons Road",
+              "signal": "break_taken",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "9 Canons Road",
+              "signal": "vacant@entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "12 Canons Road",
+              "signal": "break_taken",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "3A Deans Road",
+              "signal": "break_taken",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "4 Deans Road",
+              "signal": "break_taken",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "5 Deans Road",
+              "signal": "under_offer",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "7 Deans Road",
+              "signal": "vacant@entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "8 Canons Road",
+              "signal": "break_taken",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "9 Canons Road",
+              "signal": "vacant@entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "12 Canons Road",
+              "signal": "break_taken",
+              "decision": "reviewed",
+              "note": ""
+            }
+          ],
+          "returns": {
+            "unlevered_irr": 0.186982332823991,
+            "net_investor_irr": 0.199900614481681,
+            "levered_irr": 0.236031548055975,
+            "equity_multiple": 2.65641835245531,
+            "cash_on_cash": 0.0706778407555396,
+            "net_exit_price": 46.5607328382944,
+            "net_purchase_price": 24130876.2753455,
+            "cfo": {
+              "scenario_label": null,
+              "unlevered": {
+                "irr": 0.186982332823991,
+                "em": 2.17263145312844,
+                "coc_y5": 0.0706778407555396,
+                "profit": 30.1398689694346,
+                "equity": 25.8347943070467
+              },
+              "levered": {
+                "irr": 0.236031548055975,
+                "em": 2.65641835245531,
+                "coc_y5": 0.0694831488863882,
+                "profit": 19.0092374596857,
+                "equity": 11.2242377834124
+              },
+              "assumptions_table": {
+                "net_purchase_price": 24130876.2753455
+              },
+              "source": {
+                "sheet": "Cash Flow Output",
+                "unlevered_col": "L",
+                "levered_col": "J",
+                "resolved_by": "label",
+                "row_map": {
+                  "equity": 16,
+                  "unlev_irr": 17,
+                  "lev_irr": 18,
+                  "em": 19,
+                  "coc": 20,
+                  "profit": 21
+                }
+              }
+            }
+          },
+          "checks": {
+            "pass": true,
+            "anchor_tieout_ok": true,
+            "workbook_error_cells": 0
+          },
+          "assumption_notes": [
+            "entry_yield=0.0725 applied uniformly to 28 unit(s) (RR col H, pre-injection)"
+          ],
+          "note": "",
+          "model_xlsx": "C:\\Screening Framework\\extractor\\underwrite_runs\\bef9beb3fedf43e5\\run_20260611T000105Z\\model.xlsx",
+          "passed": true
+        },
+        {
+          "version": 3,
+          "type": "run",
+          "at": "2026-06-11T12:09:09.288811Z",
+          "analyst": "phase0-verify",
+          "is_baseline": false,
+          "assumptions": {
+            "entry_date": "2026-06-30",
+            "hold_years": 5,
+            "exit_yield": 0.0525,
+            "rental_growth": 0.045,
+            "ltv": 0.6,
+            "scenario": 1
+          },
+          "vs_previous": {
+            "entry_yield": {
+              "from": 0.0725,
+              "to": null
+            }
+          },
+          "vs_baseline": {
+            "exit_yield": {
+              "from": 0.0625,
+              "to": 0.0525
+            },
+            "entry_date": {
+              "from": "2026-06-01",
+              "to": "2026-06-30"
+            },
+            "ltv": {
+              "from": 0,
+              "to": 0.6
+            }
+          },
+          "flag_resolutions": [],
+          "gap_overrides": {
+            "Assumed Void (mths)": 3,
+            "Re-letting Capex (psf)": 10
+          },
+          "returns": {
+            "unlevered_irr": 0.178395031835595,
+            "net_investor_irr": 0.189010136598322,
+            "levered_irr": 0.22335427348933,
+            "equity_multiple": 2.5823087442675,
+            "cash_on_cash": 0.061507041173275,
+            "net_exit_price": 46.785061158377,
+            "net_purchase_price": 24130876.2753455,
+            "cfo": {
+              "scenario_label": null,
+              "unlevered": {
+                "irr": 0.178395031835595,
+                "em": 2.13450154183201,
+                "coc_y5": 0.061507041173275,
+                "profit": 29.1598248752525,
+                "equity": 25.8347943070467
+              },
+              "levered": {
+                "irr": 0.22335427348933,
+                "em": 2.5823087442675,
+                "coc_y5": 0.068014789866978,
+                "profit": 18.1587475227696,
+                "equity": 11.2242377834124
+              },
+              "assumptions_table": {
+                "net_purchase_price": 24130876.2753455
+              },
+              "source": {
+                "sheet": "Cash Flow Output",
+                "unlevered_col": "L",
+                "levered_col": "J",
+                "resolved_by": "label",
+                "row_map": {
+                  "equity": 16,
+                  "unlev_irr": 17,
+                  "lev_irr": 18,
+                  "em": 19,
+                  "coc": 20,
+                  "profit": 21
+                }
+              }
+            }
+          },
+          "checks": {
+            "pass": true,
+            "anchor_tieout_ok": true,
+            "workbook_error_cells": 0
+          },
+          "assumption_notes": [
+            "gap override: filled 20 blank Assumed Void (mths) cell(s) with 3mths",
+            "gap override: filled 20 blank Re-letting Capex (psf) cell(s) with 10\u00a3 psf"
+          ],
+          "note": "Task 8 gap-override proof",
+          "model_xlsx": "C:\\Screening Framework\\extractor\\underwrite_runs\\bef9beb3fedf43e5\\run_20260611T120821Z\\model.xlsx",
+          "passed": true
+        }
+      ],
+      "returns": {
+        "unlevered_irr": 0.178395031835595,
+        "net_investor_irr": 0.189010136598322,
+        "levered_irr": 0.22335427348933,
+        "equity_multiple": 2.5823087442675,
+        "cash_on_cash": 0.061507041173275,
+        "net_exit_price": 46.785061158377,
+        "net_purchase_price": 24130876.2753455,
+        "cfo": {
+          "scenario_label": null,
+          "unlevered": {
+            "irr": 0.178395031835595,
+            "em": 2.13450154183201,
+            "coc_y5": 0.061507041173275,
+            "profit": 29.1598248752525,
+            "equity": 25.8347943070467
+          },
+          "levered": {
+            "irr": 0.22335427348933,
+            "em": 2.5823087442675,
+            "coc_y5": 0.068014789866978,
+            "profit": 18.1587475227696,
+            "equity": 11.2242377834124
+          },
+          "assumptions_table": {
+            "net_purchase_price": 24130876.2753455
+          },
+          "source": {
+            "sheet": "Cash Flow Output",
+            "unlevered_col": "L",
+            "levered_col": "J",
+            "resolved_by": "label",
+            "row_map": {
+              "equity": 16,
+              "unlev_irr": 17,
+              "lev_irr": 18,
+              "em": 19,
+              "coc": 20,
+              "profit": 21
+            }
+          }
+        }
+      },
+      "checks": {
+        "pass": true,
+        "anchor_tieout_ok": true,
+        "workbook_error_cells": 0
+      },
+      "display_returns": true,
+      "updated_at": "2026-06-11T12:09:09.290940Z",
+      "assumptions": {
+        "entry_date": "2026-06-30",
+        "hold_years": 5,
+        "exit_yield": 0.0525,
+        "rental_growth": 0.045,
+        "ltv": 0.6,
+        "scenario": 1
+      },
+      "assumption_notes": [
+        "gap override: filled 20 blank Assumed Void (mths) cell(s) with 3mths",
+        "gap override: filled 20 blank Re-letting Capex (psf) cell(s) with 10\u00a3 psf"
+      ],
+      "model_xlsx": "C:\\Screening Framework\\extractor\\underwrite_runs\\bef9beb3fedf43e5\\run_20260611T120821Z\\model.xlsx",
+      "latest_version": 3
+    }
+  },
+  {
+    "deal_id": "98a64941ca8843e7",
+    "status": "extracted",
+    "pdf_hash": "98a64941ca8843e72786791b4d1e5deb2772c9bc26d6095cf0082e924e72bb46",
+    "source_filename": "DTRE - Harbourgate, Portsmouth - April 2026.pdf",
+    "extracted_fields": {
+      "Type": "IM",
+      "Project Name": "Harbourgate, Portsmouth",
+      "Country": "United Kingdom",
+      "Location": "Portsmouth",
+      "Portfolio": "No",
+      "Address": "Units 1-4, Southampton Road, Portsmouth",
+      "Postal code": "PO6 4BQ",
+      "Property designation": "PM12825",
+      "Number of Tenants": 4,
+      "Leasable area, sq ft": 129989,
+      "Base rent incl. index, CCY/sqft": 12,
+      "NOI, CCY": 1593742,
+      "WAULT, years": 3,
+      "Economic occupancy rate, %": "100%",
+      "Yield": 6.0,
+      "Deal value, CCY": 24890000,
+      "Comment": "Fully let mid box estate with diversified tenant base; 60% of estate subject to lease event by Q4 2028 offering reversion upside."
+    },
+    "market_ids": [
+      "uk-05"
+    ],
+    "market_match_confidence": 0.85,
+    "microlocation_fit_score": 66.3,
+    "microlocation_narrative": "uk-05 ranks strongly on Connectivity (score 100) and Supply (score 75).",
+    "narrative_detail": {
+      "uk-05": {
+        "fit_score": 66.3,
+        "narrative": "uk-05 ranks strongly on Connectivity (score 100) and Supply (score 75).",
+        "top_pillars": [
+          [
+            "Connectivity",
+            100
+          ],
+          [
+            "Supply",
+            75
+          ]
+        ]
+      }
+    },
+    "showcase": {
+      "headline": null,
+      "kpis": null,
+      "rationale_bullets": [],
+      "business_plan_bullets": [],
+      "images": [
+        {
+          "file": "showcase_img/98a64941ca8843e7_0.png",
+          "selected": true
+        },
+        {
+          "file": "showcase_img/98a64941ca8843e7_2.png",
+          "selected": false
+        },
+        {
+          "file": "showcase_img/98a64941ca8843e7_14.png",
+          "selected": false
+        }
+      ],
+      "location": {
+        "address": null,
+        "postcode": null,
+        "lat": null,
+        "lng": null
+      },
+      "provenance": {
+        "generated_from": "im",
+        "generated_at": "2026-07-05T13:01:28.262515Z",
+        "edited_by_analyst": false
+      }
+    },
+    "created_at": "2026-07-05T13:01:28.388586Z",
+    "updated_at": "2026-07-07T11:21:45.283832Z"
+  },
+  {
+    "deal_id": "cdff08fe579ee180",
+    "status": "extracted",
+    "pdf_hash": "cdff08fe579ee180b29a4e52652204fdd472cc04c853b21f5610030dfa4597f6",
+    "source_filename": "temp_segroparktottenham_brochure.pdf",
+    "extracted_fields": {
+      "Type": "Teaser",
+      "Project Name": "SEGRO Park Tottenham",
+      "Country": "United Kingdom",
+      "Location": "Tottenham, London",
+      "Portfolio": "No",
+      "Address": "White Hart Lane",
+      "Postal code": "N17 7RP",
+      "Leasable area, sq ft": 50578,
+      "Comment": "Newly delivered, sustainable, smart-tech industrial units in prime Zone 3 London location with strong connectivity."
+    },
+    "market_ids": [
+      "uk-01"
+    ],
+    "market_match_confidence": 0.75,
+    "microlocation_fit_score": 64.4,
+    "microlocation_narrative": "uk-01 ranks strongly on Connectivity (score 100) and Supply (score 70).",
+    "narrative_detail": {
+      "uk-01": {
+        "fit_score": 64.4,
+        "narrative": "uk-01 ranks strongly on Connectivity (score 100) and Supply (score 70).",
+        "top_pillars": [
+          [
+            "Connectivity",
+            100
+          ],
+          [
+            "Supply",
+            70
+          ]
+        ]
+      }
+    },
+    "showcase": {
+      "headline": "The greenest urban industrial development in London",
+      "kpis": {
+        "units": "8"
+      },
+      "rationale_bullets": [
+        {
+          "label": "CENTRAL",
+          "text": "Centrally located and well connected, enabling you to reach all of your customers in London and the South East, fast."
+        },
+        {
+          "label": "EXTRAORDINARY",
+          "text": "Exceptional warehouse and office specifications on a modern secure estate offering flexible space for all business needs, combined with smart building technology."
+        },
+        {
+          "label": "GREEN",
+          "text": "Enhanced biodiversity and improved wellbeing are achieved through extensive landscaping, external amenity spaces, green walls, new trees, hedgerows and abundant planting."
+        },
+        {
+          "label": "SUSTAINABLE",
+          "text": "Outstanding sustainability features will enable every business to reduce their carbon footprint and save on energy costs."
+        }
+      ],
+      "business_plan_bullets": [],
+      "images": [
+        {
+          "file": "showcase_img/cdff08fe579ee180_14.png",
+          "selected": false
+        },
+        {
+          "file": "showcase_img/cdff08fe579ee180_19.png",
+          "selected": true
+        },
+        {
+          "file": "showcase_img/cdff08fe579ee180_4.png",
+          "selected": false
+        }
+      ],
+      "location": {
+        "address": null,
+        "postcode": "N17 7RP",
+        "lat": 51.605642,
+        "lng": -0.095226
+      },
+      "provenance": {
+        "generated_from": "im",
+        "generated_at": "2026-07-07T11:19:11.746374Z",
+        "edited_by_analyst": true
+      }
+    },
+    "created_at": "2026-07-07T11:19:15.675564Z",
+    "updated_at": "2026-07-07T11:22:05.752269Z"
+  },
+  {
+    "deal_id": "b6dbe862c725ceb0",
+    "status": "extracted",
+    "pdf_hash": "b6dbe862c725ceb0f6e648ff492b20b55dbfabb4451a9678cd0ec1aaa45a6233",
+    "source_filename": "temp_Mark Lundin CV.pdf",
+    "extracted_fields": {
+      "Country": "United Kingdom",
+      "Project Name": "Chancerygate"
+    },
+    "market_ids": [],
+    "market_match_confidence": 0.0,
+    "microlocation_fit_score": 50,
+    "microlocation_narrative": "",
+    "narrative_detail": {},
+    "showcase": {
+      "headline": null,
+      "kpis": null,
+      "rationale_bullets": [],
+      "business_plan_bullets": [],
+      "images": [],
+      "location": {
+        "address": null,
+        "postcode": null,
+        "lat": null,
+        "lng": null
+      },
+      "provenance": {
+        "generated_from": "im",
+        "generated_at": "2026-07-07T11:30:56.980010Z",
+        "edited_by_analyst": false
+      }
+    },
+    "created_at": "2026-07-07T11:30:56.983655Z",
+    "updated_at": "2026-07-07T12:33:43.921719Z",
+    "underwrite": {
+      "status": "checks_failed",
+      "asset": "Chancerygate",
+      "region": "UK",
+      "raw_path": "C:\\Screening Framework\\extractor\\underwrite_runs\\b6dbe862c725ceb0\\raw_CG 2026 Portfolio Marketing TS.xlsx",
+      "rr_xlsx": "C:\\Screening Framework\\extractor\\underwrite_runs\\b6dbe862c725ceb0\\canonical_rr.xlsx",
+      "rr_sheet": "DealRR",
+      "mapping": {
+        "sheet": "Tenancy Schedule",
+        "header_row": 3,
+        "data_start_row": 4,
+        "columns": {
+          "Unit Number": "F",
+          "Tenant Name": "G",
+          "Area GIA (sq ft)": "J",
+          "Lease Start": "L",
+          "Lease Expiry": "O",
+          "Break Date": "N",
+          "Rent Review / MTM Date": "M",
+          "Vacant @ Entry (Y/N)": "AA",
+          "Passing Rent (pa)": "W",
+          "Guarantee Rent (pa)": "AK",
+          "ERV (psf)": "AL",
+          "Assumed Rent Free (mths)": "AD"
+        },
+        "aux_columns": {},
+        "flags": [
+          {
+            "field": "Entry Yield (NIY)",
+            "note": "No yield column present in schedule - omitted."
+          },
+          {
+            "field": "Exit Yield",
+            "note": "No yield column present in schedule - omitted."
+          },
+          {
+            "field": "Break Taken (1=Yes,0=No)",
+            "note": "No explicit 'break taken' indicator column found; N (Break Date) shows 'N/A' for many but no taken/not-taken flag."
+          },
+          {
+            "field": "Guarantee Rent (pa)",
+            "note": "Mapped to AK 'Topped Up Passing Rent' since AH 'Rent (pa) Headline (Topped Up)' contains #REF! errors for vacant units (rows 7,8,19,20); AK contains valid guarantee figures for vacant units and equals passing rent (W) for occupied units."
+          },
+          {
+            "field": "ERV (pa)",
+            "note": "No standalone ERV (pa) column identified; only 'Topped Up' (AK/AL) and 'Top Up @ ERV' (AB, which is broken with #REF!) columns exist. ERV (pa) omitted; ERV (psf) mapped to AL as best proxy."
+          },
+          {
+            "field": "ERV (psf)",
+            "note": "AL 'Topped Up psf' used as proxy for ERV (psf); for occupied units it equals passing psf (X), for vacant units it reflects guarantee/ERV psf rate - some ambiguity as it's not a pure ERV field."
+          },
+          {
+            "field": "Assumed Void (mths)",
+            "note": "No void period column found in schedule - omitted."
+          },
+          {
+            "field": "Re-letting Capex (psf)",
+            "note": "No re-letting capex column found in schedule - omitted."
+          },
+          {
+            "field": "Area GIA (sq ft)",
+            "note": "H and I appear to be Ground/First floor area breakdowns; J is the total GIA and was selected as the canonical area."
+          },
+          {
+            "field": "_vacate_at_expiry",
+            "note": "No 'Vacate at Expiry' flag column identified in the schedule preview."
+          }
+        ]
+      },
+      "mapping_confirmed": false,
+      "flags": [
+        {
+          "field": "Entry Yield (NIY)",
+          "note": "schedule NIY is a starting point; confirm the acquisition yield (pricing decision)",
+          "needs_signoff": true,
+          "rationale": "The acquisition yield is the PRICING decision; the schedule NIY is a starting point, not the agreed price. Confirm, don't inherit.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "we will assume a entry price at with a strike of 79million pounds",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920153Z"
+          }
+        },
+        {
+          "field": "Exit Yield",
+          "note": "confirm exit yield (biggest value driver)",
+          "needs_signoff": true,
+          "rationale": "The exit yield is the single biggest value driver and is a forward-looking market view set by the analyst.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "5% for Red Lion Road units, and 5.5% for capital park and bourges view units",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920162Z"
+          }
+        },
+        {
+          "unit": "Unit 6",
+          "field": "Vacant @ Entry",
+          "note": "confirm vacant valuation basis (capitalise guarantee/headline)",
+          "needs_signoff": true,
+          "rationale": "Confirm the vacant valuation basis (capitalise guarantee vs headline) - it changes the entry price.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920169Z"
+          }
+        },
+        {
+          "unit": "Unit 7",
+          "field": "Vacant @ Entry",
+          "note": "confirm vacant valuation basis (capitalise guarantee/headline)",
+          "needs_signoff": true,
+          "rationale": "Confirm the vacant valuation basis (capitalise guarantee vs headline) - it changes the entry price.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920174Z"
+          }
+        },
+        {
+          "unit": "Unit 20",
+          "field": "Vacant @ Entry",
+          "note": "confirm vacant valuation basis (capitalise guarantee/headline)",
+          "needs_signoff": true,
+          "rationale": "Confirm the vacant valuation basis (capitalise guarantee vs headline) - it changes the entry price.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920179Z"
+          }
+        },
+        {
+          "unit": "Unit 21",
+          "field": "Vacant @ Entry",
+          "note": "confirm vacant valuation basis (capitalise guarantee/headline)",
+          "needs_signoff": true,
+          "rationale": "Confirm the vacant valuation basis (capitalise guarantee vs headline) - it changes the entry price.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920184Z"
+          }
+        },
+        {
+          "unit": "Unit 3e",
+          "field": "Vacant @ Entry",
+          "note": "confirm vacant valuation basis (capitalise guarantee/headline)",
+          "needs_signoff": true,
+          "rationale": "Confirm the vacant valuation basis (capitalise guarantee vs headline) - it changes the entry price.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920188Z"
+          }
+        },
+        {
+          "unit": "Unit 81",
+          "field": "Vacant @ Entry",
+          "note": "confirm vacant valuation basis (capitalise guarantee/headline)",
+          "needs_signoff": true,
+          "rationale": "Confirm the vacant valuation basis (capitalise guarantee vs headline) - it changes the entry price.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920193Z"
+          }
+        },
+        {
+          "unit": "Unit 87",
+          "field": "Vacant @ Entry",
+          "note": "confirm vacant valuation basis (capitalise guarantee/headline)",
+          "needs_signoff": true,
+          "rationale": "Confirm the vacant valuation basis (capitalise guarantee vs headline) - it changes the entry price.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920197Z"
+          }
+        },
+        {
+          "unit": "Unit 93 ",
+          "field": "Vacant @ Entry",
+          "note": "confirm vacant valuation basis (capitalise guarantee/headline)",
+          "needs_signoff": true,
+          "rationale": "Confirm the vacant valuation basis (capitalise guarantee vs headline) - it changes the entry price.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920202Z"
+          }
+        },
+        {
+          "unit": "Unit 1",
+          "field": "Vacant @ Entry",
+          "note": "confirm vacant valuation basis (capitalise guarantee/headline)",
+          "needs_signoff": true,
+          "rationale": "Confirm the vacant valuation basis (capitalise guarantee vs headline) - it changes the entry price.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920207Z"
+          }
+        },
+        {
+          "unit": "Unit 3",
+          "field": "Vacant @ Entry",
+          "note": "confirm vacant valuation basis (capitalise guarantee/headline)",
+          "needs_signoff": true,
+          "rationale": "Confirm the vacant valuation basis (capitalise guarantee vs headline) - it changes the entry price.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920211Z"
+          }
+        },
+        {
+          "unit": "Unit 4",
+          "field": "Vacant @ Entry",
+          "note": "confirm vacant valuation basis (capitalise guarantee/headline)",
+          "needs_signoff": true,
+          "rationale": "Confirm the vacant valuation basis (capitalise guarantee vs headline) - it changes the entry price.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920216Z"
+          }
+        },
+        {
+          "unit": "Unit 5",
+          "field": "Vacant @ Entry",
+          "note": "confirm vacant valuation basis (capitalise guarantee/headline)",
+          "needs_signoff": true,
+          "rationale": "Confirm the vacant valuation basis (capitalise guarantee vs headline) - it changes the entry price.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920220Z"
+          }
+        },
+        {
+          "unit": "Unit 9",
+          "field": "Vacant @ Entry",
+          "note": "confirm vacant valuation basis (capitalise guarantee/headline)",
+          "needs_signoff": true,
+          "rationale": "Confirm the vacant valuation basis (capitalise guarantee vs headline) - it changes the entry price.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920223Z"
+          }
+        },
+        {
+          "unit": "Unit 6",
+          "signal": "vacant@entry",
+          "treatment": "capitalise guarantee/headline rent; re-let at void/RF defaults",
+          "needs_signoff": true,
+          "rationale": "Vacant units carry no contractual income; value depends on the analyst's view of headline/guarantee rent and the re-letting (void/rent-free/capex) assumptions - a pricing judgement, not a fact in the schedule.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920228Z"
+          }
+        },
+        {
+          "unit": "Unit 7",
+          "signal": "vacant@entry",
+          "treatment": "capitalise guarantee/headline rent; re-let at void/RF defaults",
+          "needs_signoff": true,
+          "rationale": "Vacant units carry no contractual income; value depends on the analyst's view of headline/guarantee rent and the re-letting (void/rent-free/capex) assumptions - a pricing judgement, not a fact in the schedule.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920233Z"
+          }
+        },
+        {
+          "unit": "Unit 20",
+          "signal": "vacant@entry",
+          "treatment": "capitalise guarantee/headline rent; re-let at void/RF defaults",
+          "needs_signoff": true,
+          "rationale": "Vacant units carry no contractual income; value depends on the analyst's view of headline/guarantee rent and the re-letting (void/rent-free/capex) assumptions - a pricing judgement, not a fact in the schedule.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920238Z"
+          }
+        },
+        {
+          "unit": "Unit 21",
+          "signal": "vacant@entry",
+          "treatment": "capitalise guarantee/headline rent; re-let at void/RF defaults",
+          "needs_signoff": true,
+          "rationale": "Vacant units carry no contractual income; value depends on the analyst's view of headline/guarantee rent and the re-letting (void/rent-free/capex) assumptions - a pricing judgement, not a fact in the schedule.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920242Z"
+          }
+        },
+        {
+          "unit": "Unit 3d",
+          "signal": "under_offer",
+          "treatment": "let from agreed start on agreed rent/term",
+          "needs_signoff": true,
+          "rationale": "An agreed-but-not-completed letting; whether and when to recognise the income is a judgement on deal certainty.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920247Z"
+          }
+        },
+        {
+          "unit": "Unit 3e",
+          "signal": "vacant@entry",
+          "treatment": "capitalise guarantee/headline rent; re-let at void/RF defaults",
+          "needs_signoff": true,
+          "rationale": "Vacant units carry no contractual income; value depends on the analyst's view of headline/guarantee rent and the re-letting (void/rent-free/capex) assumptions - a pricing judgement, not a fact in the schedule.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920252Z"
+          }
+        },
+        {
+          "unit": "Unit 81",
+          "signal": "vacant@entry",
+          "treatment": "capitalise guarantee/headline rent; re-let at void/RF defaults",
+          "needs_signoff": true,
+          "rationale": "Vacant units carry no contractual income; value depends on the analyst's view of headline/guarantee rent and the re-letting (void/rent-free/capex) assumptions - a pricing judgement, not a fact in the schedule.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920256Z"
+          }
+        },
+        {
+          "unit": "Unit 87",
+          "signal": "vacant@entry",
+          "treatment": "capitalise guarantee/headline rent; re-let at void/RF defaults",
+          "needs_signoff": true,
+          "rationale": "Vacant units carry no contractual income; value depends on the analyst's view of headline/guarantee rent and the re-letting (void/rent-free/capex) assumptions - a pricing judgement, not a fact in the schedule.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920261Z"
+          }
+        },
+        {
+          "unit": "Unit 89",
+          "signal": "under_offer",
+          "treatment": "let from agreed start on agreed rent/term",
+          "needs_signoff": true,
+          "rationale": "An agreed-but-not-completed letting; whether and when to recognise the income is a judgement on deal certainty.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920265Z"
+          }
+        },
+        {
+          "unit": "Unit 93 ",
+          "signal": "vacant@entry",
+          "treatment": "capitalise guarantee/headline rent; re-let at void/RF defaults",
+          "needs_signoff": true,
+          "rationale": "Vacant units carry no contractual income; value depends on the analyst's view of headline/guarantee rent and the re-letting (void/rent-free/capex) assumptions - a pricing judgement, not a fact in the schedule.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920270Z"
+          }
+        },
+        {
+          "unit": "Unit 1",
+          "signal": "vacant@entry",
+          "treatment": "capitalise guarantee/headline rent; re-let at void/RF defaults",
+          "needs_signoff": true,
+          "rationale": "Vacant units carry no contractual income; value depends on the analyst's view of headline/guarantee rent and the re-letting (void/rent-free/capex) assumptions - a pricing judgement, not a fact in the schedule.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920274Z"
+          }
+        },
+        {
+          "unit": "Unit 2",
+          "signal": "under_offer",
+          "treatment": "let from agreed start on agreed rent/term",
+          "needs_signoff": true,
+          "rationale": "An agreed-but-not-completed letting; whether and when to recognise the income is a judgement on deal certainty.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920279Z"
+          }
+        },
+        {
+          "unit": "Unit 3",
+          "signal": "vacant@entry",
+          "treatment": "capitalise guarantee/headline rent; re-let at void/RF defaults",
+          "needs_signoff": true,
+          "rationale": "Vacant units carry no contractual income; value depends on the analyst's view of headline/guarantee rent and the re-letting (void/rent-free/capex) assumptions - a pricing judgement, not a fact in the schedule.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920283Z"
+          }
+        },
+        {
+          "unit": "Unit 4",
+          "signal": "vacant@entry",
+          "treatment": "capitalise guarantee/headline rent; re-let at void/RF defaults",
+          "needs_signoff": true,
+          "rationale": "Vacant units carry no contractual income; value depends on the analyst's view of headline/guarantee rent and the re-letting (void/rent-free/capex) assumptions - a pricing judgement, not a fact in the schedule.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920288Z"
+          }
+        },
+        {
+          "unit": "Unit 5",
+          "signal": "vacant@entry",
+          "treatment": "capitalise guarantee/headline rent; re-let at void/RF defaults",
+          "needs_signoff": true,
+          "rationale": "Vacant units carry no contractual income; value depends on the analyst's view of headline/guarantee rent and the re-letting (void/rent-free/capex) assumptions - a pricing judgement, not a fact in the schedule.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920293Z"
+          }
+        },
+        {
+          "unit": "Unit 9",
+          "signal": "vacant@entry",
+          "treatment": "capitalise guarantee/headline rent; re-let at void/RF defaults",
+          "needs_signoff": true,
+          "rationale": "Vacant units carry no contractual income; value depends on the analyst's view of headline/guarantee rent and the re-letting (void/rent-free/capex) assumptions - a pricing judgement, not a fact in the schedule.",
+          "resolution": {
+            "decision": "reviewed",
+            "note": "",
+            "analyst": null,
+            "at": "2026-07-07T12:33:43.920298Z"
+          }
+        }
+      ],
+      "schema_errors": [],
+      "units": 45,
+      "baseline": {
+        "at": "2026-07-07T12:33:43.920054Z",
+        "assumptions": {
+          "entry_date": "2026-08-01",
+          "hold_years": 5,
+          "entry_yield": null,
+          "exit_yield": 0.0525,
+          "rental_growth": 0.045,
+          "ltv": 0.6,
+          "scenario": 1
+        },
+        "returns": {
+          "unlevered_irr": 0,
+          "net_investor_irr": "n/a",
+          "levered_irr": 0,
+          "equity_multiple": -8.25416574803222,
+          "cash_on_cash": -31.1006729821954,
+          "net_exit_price": 0,
+          "net_purchase_price": 0,
+          "cfo": {
+            "scenario_label": null,
+            "unlevered": {
+              "irr": 0.0,
+              "em": -10.4806267262596,
+              "coc_y5": -31.1006729821954,
+              "profit": 24.1455431492579,
+              "equity": -0.139424873876404
+            },
+            "levered": {
+              "irr": 0.0,
+              "em": -8.25416574803222,
+              "coc_y5": -1.54556010489189,
+              "profit": 17.9360121670752,
+              "equity": -2.10315549185393
+            },
+            "assumptions_table": {
+              "net_purchase_price": 0.0
+            },
+            "source": {
+              "sheet": "Cash Flow Output",
+              "unlevered_col": "L",
+              "levered_col": "J",
+              "resolved_by": "label",
+              "row_map": {
+                "equity": 16,
+                "unlev_irr": 17,
+                "lev_irr": 18,
+                "em": 19,
+                "coc": 20,
+                "profit": 21
+              }
+            }
+          }
+        },
+        "checks": {
+          "pass": false,
+          "anchor_tieout_ok": true,
+          "workbook_error_cells": 10
+        },
+        "version": 1
+      },
+      "runs": [
+        {
+          "version": 1,
+          "type": "run",
+          "at": "2026-07-07T12:33:43.920054Z",
+          "analyst": null,
+          "is_baseline": true,
+          "assumptions": {
+            "entry_date": "2026-08-01",
+            "hold_years": 5,
+            "entry_yield": null,
+            "exit_yield": 0.0525,
+            "rental_growth": 0.045,
+            "ltv": 0.6,
+            "scenario": 1
+          },
+          "vs_previous": {
+            "exit_yield": {
+              "from": null,
+              "to": 0.0525
+            },
+            "hold_years": {
+              "from": null,
+              "to": 5
+            },
+            "ltv": {
+              "from": null,
+              "to": 0.6
+            },
+            "entry_date": {
+              "from": null,
+              "to": "2026-08-01"
+            },
+            "scenario": {
+              "from": null,
+              "to": 1
+            },
+            "rental_growth": {
+              "from": null,
+              "to": 0.045
+            }
+          },
+          "vs_baseline": {
+            "exit_yield": {
+              "from": null,
+              "to": 0.0525
+            },
+            "hold_years": {
+              "from": null,
+              "to": 5
+            },
+            "ltv": {
+              "from": null,
+              "to": 0.6
+            },
+            "entry_date": {
+              "from": null,
+              "to": "2026-08-01"
+            },
+            "scenario": {
+              "from": null,
+              "to": 1
+            },
+            "rental_growth": {
+              "from": null,
+              "to": 0.045
+            }
+          },
+          "flag_resolutions": [
+            {
+              "field": "Entry Yield (NIY)",
+              "decision": "reviewed",
+              "note": "we will assume a entry price at with a strike of 79million pounds"
+            },
+            {
+              "field": "Exit Yield",
+              "decision": "reviewed",
+              "note": "5% for Red Lion Road units, and 5.5% for capital park and bourges view units"
+            },
+            {
+              "unit": "Unit 6",
+              "field": "Vacant @ Entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 7",
+              "field": "Vacant @ Entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 20",
+              "field": "Vacant @ Entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 21",
+              "field": "Vacant @ Entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 3e",
+              "field": "Vacant @ Entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 81",
+              "field": "Vacant @ Entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 87",
+              "field": "Vacant @ Entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 93 ",
+              "field": "Vacant @ Entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 1",
+              "field": "Vacant @ Entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 3",
+              "field": "Vacant @ Entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 4",
+              "field": "Vacant @ Entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 5",
+              "field": "Vacant @ Entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 9",
+              "field": "Vacant @ Entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 6",
+              "signal": "vacant@entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 7",
+              "signal": "vacant@entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 20",
+              "signal": "vacant@entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 21",
+              "signal": "vacant@entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 3d",
+              "signal": "under_offer",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 3e",
+              "signal": "vacant@entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 81",
+              "signal": "vacant@entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 87",
+              "signal": "vacant@entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 89",
+              "signal": "under_offer",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 93 ",
+              "signal": "vacant@entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 1",
+              "signal": "vacant@entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 2",
+              "signal": "under_offer",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 3",
+              "signal": "vacant@entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 4",
+              "signal": "vacant@entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 5",
+              "signal": "vacant@entry",
+              "decision": "reviewed",
+              "note": ""
+            },
+            {
+              "unit": "Unit 9",
+              "signal": "vacant@entry",
+              "decision": "reviewed",
+              "note": ""
+            }
+          ],
+          "gap_overrides": {},
+          "returns": {
+            "unlevered_irr": 0,
+            "net_investor_irr": "n/a",
+            "levered_irr": 0,
+            "equity_multiple": -8.25416574803222,
+            "cash_on_cash": -31.1006729821954,
+            "net_exit_price": 0,
+            "net_purchase_price": 0,
+            "cfo": {
+              "scenario_label": null,
+              "unlevered": {
+                "irr": 0.0,
+                "em": -10.4806267262596,
+                "coc_y5": -31.1006729821954,
+                "profit": 24.1455431492579,
+                "equity": -0.139424873876404
+              },
+              "levered": {
+                "irr": 0.0,
+                "em": -8.25416574803222,
+                "coc_y5": -1.54556010489189,
+                "profit": 17.9360121670752,
+                "equity": -2.10315549185393
+              },
+              "assumptions_table": {
+                "net_purchase_price": 0.0
+              },
+              "source": {
+                "sheet": "Cash Flow Output",
+                "unlevered_col": "L",
+                "levered_col": "J",
+                "resolved_by": "label",
+                "row_map": {
+                  "equity": 16,
+                  "unlev_irr": 17,
+                  "lev_irr": 18,
+                  "em": 19,
+                  "coc": 20,
+                  "profit": 21
+                }
+              }
+            }
+          },
+          "checks": {
+            "pass": false,
+            "anchor_tieout_ok": true,
+            "workbook_error_cells": 10
+          },
+          "assumption_notes": [
+            "exit_yield not applied: schedule exit yields are non-uniform (0 distinct); set exit_yield_shift instead"
+          ],
+          "note": "",
+          "model_xlsx": "C:\\Screening Framework\\extractor\\underwrite_runs\\b6dbe862c725ceb0\\run_20260707T123247Z\\model.xlsx",
+          "passed": false
+        }
+      ],
+      "returns": {
+        "unlevered_irr": 0,
+        "net_investor_irr": "n/a",
+        "levered_irr": 0,
+        "equity_multiple": -8.25416574803222,
+        "cash_on_cash": -31.1006729821954,
+        "net_exit_price": 0,
+        "net_purchase_price": 0,
+        "cfo": {
+          "scenario_label": null,
+          "unlevered": {
+            "irr": 0.0,
+            "em": -10.4806267262596,
+            "coc_y5": -31.1006729821954,
+            "profit": 24.1455431492579,
+            "equity": -0.139424873876404
+          },
+          "levered": {
+            "irr": 0.0,
+            "em": -8.25416574803222,
+            "coc_y5": -1.54556010489189,
+            "profit": 17.9360121670752,
+            "equity": -2.10315549185393
+          },
+          "assumptions_table": {
+            "net_purchase_price": 0.0
+          },
+          "source": {
+            "sheet": "Cash Flow Output",
+            "unlevered_col": "L",
+            "levered_col": "J",
+            "resolved_by": "label",
+            "row_map": {
+              "equity": 16,
+              "unlev_irr": 17,
+              "lev_irr": 18,
+              "em": 19,
+              "coc": 20,
+              "profit": 21
+            }
+          }
+        }
+      },
+      "checks": {
+        "pass": false,
+        "anchor_tieout_ok": true,
+        "workbook_error_cells": 10
+      },
+      "display_returns": false,
+      "updated_at": "2026-07-07T12:33:43.921164Z",
+      "assumptions": {
+        "entry_date": "2026-08-01",
+        "hold_years": 5,
+        "entry_yield": null,
+        "exit_yield": 0.0525,
+        "rental_growth": 0.045,
+        "ltv": 0.6,
+        "scenario": 1
+      },
+      "assumption_notes": [
+        "exit_yield not applied: schedule exit yields are non-uniform (0 distinct); set exit_yield_shift instead"
+      ],
+      "model_xlsx": "C:\\Screening Framework\\extractor\\underwrite_runs\\b6dbe862c725ceb0\\run_20260707T123247Z\\model.xlsx",
+      "latest_version": 1
+    }
+  }
+]

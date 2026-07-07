@@ -1,0 +1,60 @@
+{
+  "assumptions": {
+    "hold_years": 5,
+    "exit_yield": 0.0625,
+    "rental_growth": 0.045,
+    "ltv": 0.0,
+    "entry_date": "2026-06-30"
+  },
+  "anchor": 8203713.29,
+  "deals": {
+    "newbury": {
+      "returns": {
+        "unlevered_irr": 0.156665695027723,
+        "net_investor_irr": 0.106200761774475,
+        "levered_irr": 0.11804630470773,
+        "equity_multiple": 1.66250539069062,
+        "cash_on_cash": 0.0724509453772144,
+        "net_exit_price": 11.2079852964847,
+        "net_purchase_price": 6885147.87550045
+      },
+      "checks": {
+        "pass": true,
+        "anchor_tieout_ok": true,
+        "workbook_error_cells": 0
+      }
+    },
+    "cannon": {
+      "returns": {
+        "unlevered_irr": 0.151657175889642,
+        "net_investor_irr": 0.105868214538624,
+        "levered_irr": 0.117780968851723,
+        "equity_multiple": 1.65640872801421,
+        "cash_on_cash": 0.0706778407555396,
+        "net_exit_price": 39.1110155841673,
+        "net_purchase_price": 24130876.2753455
+      },
+      "checks": {
+        "pass": true,
+        "anchor_tieout_ok": true,
+        "workbook_error_cells": 0
+      }
+    },
+    "meadow": {
+      "returns": {
+        "unlevered_irr": 0.179567168336233,
+        "net_investor_irr": 0.126174168841518,
+        "levered_irr": 0.141355688544646,
+        "equity_multiple": 1.83139958315888,
+        "cash_on_cash": 0.0725983499655675,
+        "net_exit_price": 60.6126165989186,
+        "net_purchase_price": 32509597.3782772
+      },
+      "checks": {
+        "pass": true,
+        "anchor_tieout_ok": true,
+        "workbook_error_cells": 0
+      }
+    }
+  }
+}

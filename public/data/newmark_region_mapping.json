@@ -1,0 +1,49 @@
+{
+  "_meta": {
+    "description": "Maps ONS ITL1 / NUTS1 region names and codes to Newmark's 11 regional zones for the map choropleth.",
+    "version": 1,
+    "inner_london_lad_codes": [
+      "E09000001", "E09000007", "E09000011", "E09000012", "E09000013",
+      "E09000019", "E09000020", "E09000022", "E09000023", "E09000028",
+      "E09000030", "E09000032", "E09000033"
+    ],
+    "note": "London is stored as a single ITL1 region; Inner London is carved out as a subset of the 33 London boroughs using the inner_london_lad_codes above."
+  },
+  "ons_to_newmark": {
+    "TLC": "North East",
+    "TLD": "North West",
+    "TLE": "Yorks and Humber",
+    "TLF": "East Midlands",
+    "TLG": "West Midlands",
+    "TLH": "East of England",
+    "TLI": "Greater London",
+    "TLJ": "South East",
+    "TLK": "South West",
+    "TLL": "Wales",
+    "TLM": "Scotland",
+    "UKC": "North East",
+    "UKD": "North West",
+    "UKE": "Yorks and Humber",
+    "UKF": "East Midlands",
+    "UKG": "West Midlands",
+    "UKH": "East of England",
+    "UKI": "Greater London",
+    "UKJ": "South East",
+    "UKK": "South West",
+    "UKL": "Wales",
+    "UKM": "Scotland"
+  },
+  "ons_name_to_newmark": {
+    "North East (England)": "North East",
+    "North West (England)": "North West",
+    "Yorkshire and The Humber": "Yorks and Humber",
+    "East Midlands (England)": "East Midlands",
+    "West Midlands (England)": "West Midlands",
+    "East of England": "East of England",
+    "London": "Greater London",
+    "South East (England)": "South East",
+    "South West (England)": "South West",
+    "Wales": "Wales",
+    "Scotland": "Scotland"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "schema_name": "tenancy_schedule",
+  "description": "MLI underwrite input: one row per unit (a tenant's demise), normalised to the PGIM 'TENANCY SCHEDULE (template)'. Consumed by the underwrite engine (Mode A normalise+classify, Mode B populate+return). Mirrors the engine field dictionary (C:\\MLI/skills/mli-broker-schedule-normaliser/references/field_dictionary.md).",
+  "notes": "Grain = one unit, NOT one deal (contrast inbound_uk.schema.json which is one row per deal). Money in GBP; areas in sq ft; rents quoted pa unless suffixed psf; dates are real calendar dates. 'priority' echoes the field dictionary: REQUIRED (underwrite wrong/blank without it), MATERIAL (moves the cashflow), OPTIONAL (metadata/safe default). 'flag' columns are judgement calls the engine must surface for analyst sign-off in Mode A, never auto-resolve.",
+  "engine_template_header": "Header row 17 of the PGIM template; the engine resolves columns BY HEADER (v21 header-driven injector), so column position may shift without breaking this contract.",
+  "columns": [
+    { "name": "Asset Name", "type": "string", "required": true, "priority": "REQUIRED", "notes": "Property the unit belongs to. Must match the deal/Asset Register exactly or the unit silently drops from totals. Aliases: Asset, Property, Scheme." },
+    { "name": "Region", "type": "string", "required": false, "priority": "OPTIONAL", "notes": "Display/grouping. Aliases: Asset Region, Location; derivable from postcode." },
+    { "name": "Sector", "type": "string", "required": false, "priority": "OPTIONAL", "notes": "Industrial / Trade / Office. Aliases: Type, Use, Sub-Type." },
+    { "name": "Unit Number", "type": "string", "required": true, "priority": "REQUIRED", "notes": "Unique within the asset. Aliases: Unit, Demise, Suite." },
+    { "name": "Tenant Name", "type": "string", "required": false, "priority": "MATERIAL", "notes": "'Vacant'/blank implies Vacant @ Entry. Aliases: Tenant, Occupier, Lessee." },
+    { "name": "Area GIA (sq ft)", "type": "number", "required": true, "priority": "REQUIRED", "notes": "Gross internal area, > 0. Aliases: GIA, Size (sq ft), SF, NIA. Validation: flag < 100 or > 1,000,000." },
+    { "name": "Entry Yield (NIY)", "type": "number", "required": true, "priority": "REQUIRED", "flag": "pricing", "notes": "Net initial yield at acquisition, decimal (0.06 = 6%). One value per asset is common. PRICING DECISION: confirm the acquisition yield; do NOT just take the schedule NIY. Validation 0.03-0.12." },
+    { "name": "Exit Yield", "type": "number", "required": true, "priority": "REQUIRED", "flag": "pricing", "notes": "Decimal. Biggest value driver; analyst's view. Validation 0.03-0.12." },
+    { "name": "Lease Start", "type": "date", "required": true, "priority": "REQUIRED", "notes": "Real calendar date, never broker text. Aliases: Start, Commencement." },
+    { "name": "Lease Expiry", "type": "date", "required": true, "priority": "REQUIRED", "notes": "Validation: Expiry > Start. Aliases: Expiry, Lease End, New Expiry." },
+    { "name": "Break Date", "type": "date", "required": false, "priority": "MATERIAL", "notes": "Blank if none. Validation: Start < Break < Expiry. Aliases: Break, Break Option." },
+    { "name": "Break Taken (1=Yes,0=No)", "type": "integer", "required": false, "priority": "MATERIAL", "flag": "break", "notes": "Whether the break is exercised. Derive if absent (break date approx lease end, or explicit vacate flag). Confirm exercise assumption." },
+    { "name": "Rent Review / MTM Date", "type": "date", "required": true, "priority": "REQUIRED", "notes": "Next review/mark-to-market. If none, house convention (far-future or expiry). Validation: Start <= date <= Expiry." },
+    { "name": "Event @ Expiry (Y=Renew / X=Vacate)", "type": "string", "required": true, "priority": "REQUIRED", "flag": "house_view", "notes": "What happens at lease end. Y=renew at ERV, X=vacate+re-let. Vacate-at-expiry is a house view -> surface." },
+    { "name": "Vacant @ Entry (Y/N)", "type": "string", "required": true, "priority": "REQUIRED", "flag": "vacant_basis", "notes": "Empty at acquisition? Derive Y if no tenant AND passing 0. If Y, passing should be ~0. Vacant valuation basis (capitalise guarantee/headline) is a per-deal confirm." },
+    { "name": "Rent Review NEF", "type": "number", "required": false, "priority": "MATERIAL", "notes": "Net effective factor at review/re-let, e.g. 0.925. Default ~0.95 if absent (ask)." },
+    { "name": "ERV Growth to Lease Start (% pa)", "type": "number", "required": false, "priority": "MATERIAL", "notes": "Growth applied to ERV up to the (re-)letting date. Default = deal rental growth." },
+    { "name": "Passing Rent (pa)", "type": "number", "required": true, "priority": "REQUIRED", "notes": "Contracted rent payable, 0 if vacant. GBP pa. Aliases: Rent (pa), Passing Rent, Contracted Rent. Validation: psf = rent/area should land ~3-40 for UK MLI." },
+    { "name": "Guarantee Rent (pa)", "type": "number", "required": false, "priority": "MATERIAL", "flag": "vendor_guarantee", "notes": "Vendor rental guarantee / headline rent used to price a vacant-at-entry unit (capitalised as passing at entry; deducted via the entry vacancy deduction). Only meaningful when Vacant @ Entry = Y. v20/v21 column. Aliases: Headline Rent, Vendor Guarantee, Income Guarantee." },
+    { "name": "ERV (pa)", "type": "number", "required": true, "priority": "REQUIRED", "notes": "Estimated rental value (market rent), GBP pa. Aliases: ERV, Market Rent, ERV - Next Lease. If only psf given, ERV = psf x area. Validation: usually ERV >= passing; flag if materially below." },
+    { "name": "ERV (psf)", "type": "number", "required": false, "priority": "OPTIONAL", "notes": "Used to derive ERV pa if absent. Aliases: ERV psf, Marketing Rent (psf)." },
+    { "name": "Rateable Value", "type": "number", "required": false, "priority": "OPTIONAL", "notes": "GBP. Aliases: RV, Rateable Value." },
+    { "name": "Business Rates (pa)", "type": "number", "required": false, "priority": "MATERIAL", "notes": "Void holding cost. GBP pa. Aliases: Business Rates, Rates Payable. If only RV given, rates approx RV x UBR multiplier (ask)." },
+    { "name": "Service Charge (pa)", "type": "number", "required": false, "priority": "MATERIAL", "notes": "Void holding cost. GBP pa. Aliases: Service Charge, SC." },
+    { "name": "Assumed Void (mths)", "type": "number", "required": false, "priority": "MATERIAL", "notes": "Void period on re-letting; 0 if none. Aliases: Void, Letting Void, Total Void. Vacant-at-entry uses the engine entry-void default (I8) when blank." },
+    { "name": "Assumed Rent Free (mths)", "type": "number", "required": false, "priority": "MATERIAL", "notes": "Incentive on re-letting. Aliases: RF, Rent Free, Incentive. Capture the value matching Event @ Expiry (new letting vs renewal)." },
+    { "name": "Re-letting Capex (psf)", "type": "number", "required": false, "priority": "MATERIAL", "notes": "Landlord capex on re-let, GBP psf; 0 if none. Aliases: Capex, Landlord Capex. Per-unit: blank means 0, never a blanket 25." },
+    { "name": "1954 Act (Y/N)", "type": "string", "required": false, "priority": "OPTIONAL", "notes": "Security of tenure. Aliases: 1954 Act, LTA 1954." },
+    { "name": "EPC Rating", "type": "string", "required": false, "priority": "OPTIONAL", "notes": "Aliases: EPC, EPC Rating." },
+    { "name": "Rent Review (Y/N)", "type": "string", "required": false, "priority": "OPTIONAL", "notes": "Whether the lease has reviews. Aliases: Indexation Type (present -> Y)." },
+    { "name": "Term Certain (mths)", "type": "number", "required": false, "priority": "MATERIAL", "notes": "Term certain for re-let leases. House default 36-59 mths (ask). Aliases: Term Certain, Mark to Market (Years) x 12." },
+    { "name": "Stepped / Indexed Rents", "type": "array", "required": false, "priority": "OPTIONAL", "flag": "stepped_rents", "notes": "Contractual stepped/indexed uplifts as {amount_pa, date} pairs (Anniesland-style). Most deals have none. Surface for confirmation when present." }
+  ],
+  "extraction_fields": [
+    "Asset Name", "Region", "Sector", "Unit Number", "Tenant Name", "Area GIA (sq ft)",
+    "Entry Yield (NIY)", "Exit Yield", "Lease Start", "Lease Expiry", "Break Date",
+    "Break Taken (1=Yes,0=No)", "Rent Review / MTM Date", "Event @ Expiry (Y=Renew / X=Vacate)",
+    "Vacant @ Entry (Y/N)", "Rent Review NEF", "ERV Growth to Lease Start (% pa)",
+    "Passing Rent (pa)", "Guarantee Rent (pa)", "ERV (pa)", "ERV (psf)", "Rateable Value",
+    "Business Rates (pa)", "Service Charge (pa)", "Assumed Void (mths)", "Assumed Rent Free (mths)",
+    "Re-letting Capex (psf)", "1954 Act (Y/N)", "EPC Rating", "Rent Review (Y/N)",
+    "Term Certain (mths)", "Stepped / Indexed Rents"
+  ],
+  "flag_fields": [
+    "Entry Yield (NIY)", "Exit Yield", "Break Taken (1=Yes,0=No)",
+    "Event @ Expiry (Y=Renew / X=Vacate)", "Vacant @ Entry (Y/N)", "Guarantee Rent (pa)",
+    "Stepped / Indexed Rents"
+  ],
+  "flag_meanings": {
+    "pricing": "Acquisition/exit yield is the analyst's pricing call, not just the schedule NIY (see Cannon: 7.25% schedule vs 6.85% priced = ~2.4pt IRR).",
+    "break": "Break present -> is it exercised? Confirm.",
+    "house_view": "Vacate-at-expiry / event treatment is a house view -> confirm.",
+    "vacant_basis": "Vacant-at-entry valuation basis (capitalise guarantee/headline) -> confirm per deal.",
+    "vendor_guarantee": "Vendor rental guarantee treatment -> confirm; only prices vacant units.",
+    "stepped_rents": "Stepped/turnover/indexed rents -> confirm modelling."
+  }
+}

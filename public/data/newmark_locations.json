@@ -1,0 +1,622 @@
+{
+  "_meta": {
+    "source": "Newmark Multi-let Winter Bulletin Q3 2025",
+    "source_date": "2025-11-01",
+    "generated_at": "2026-04-21",
+    "description": "Named multi-let prime-rent micro-locations from Newmark Q3 2025, for map display (not scoring)."
+  },
+  "locations": [
+    {
+      "name": "Inner London",
+      "rent_psf": 41.0,
+      "region": "Inner London",
+      "our_region": "London",
+      "market_id": null,
+      "coord": [
+        51.5074,
+        -0.1278
+      ],
+      "page": 30
+    },
+    {
+      "name": "Park Royal",
+      "rent_psf": 35.0,
+      "region": "Inner London",
+      "our_region": "London",
+      "market_id": null,
+      "coord": [
+        51.5265,
+        -0.281
+      ],
+      "page": 30
+    },
+    {
+      "name": "Enfield",
+      "rent_psf": 27.5,
+      "region": "Greater London",
+      "our_region": "London",
+      "market_id": null,
+      "coord": [
+        51.6519,
+        -0.0806
+      ],
+      "page": 30
+    },
+    {
+      "name": "Heathrow",
+      "rent_psf": 28.5,
+      "region": "Greater London",
+      "our_region": "London",
+      "market_id": null,
+      "coord": [
+        51.4905,
+        -0.4323
+      ],
+      "page": 30
+    },
+    {
+      "name": "Slough",
+      "rent_psf": 27.5,
+      "region": "Greater London",
+      "our_region": "London",
+      "market_id": "uk-07",
+      "coord": [
+        51.5105,
+        -0.595
+      ],
+      "page": 30
+    },
+    {
+      "name": "West Thurrock",
+      "rent_psf": 18.5,
+      "region": "Greater London",
+      "our_region": "London",
+      "market_id": null,
+      "coord": [
+        51.4834,
+        0.3045
+      ],
+      "page": 30
+    },
+    {
+      "name": "Croydon",
+      "rent_psf": 23.5,
+      "region": "Greater London",
+      "our_region": "London",
+      "market_id": null,
+      "coord": [
+        51.3762,
+        -0.0982
+      ],
+      "page": 30
+    },
+    {
+      "name": "Peterborough",
+      "rent_psf": 12.75,
+      "region": "East of England",
+      "our_region": "East of England",
+      "market_id": "uk-19",
+      "coord": [
+        52.5695,
+        -0.2405
+      ],
+      "page": 32
+    },
+    {
+      "name": "Milton Keynes",
+      "rent_psf": 14.5,
+      "region": "South East",
+      "our_region": "South East",
+      "market_id": "uk-06",
+      "coord": [
+        52.0406,
+        -0.7594
+      ],
+      "page": 32
+    },
+    {
+      "name": "Banbury",
+      "rent_psf": 11.0,
+      "region": "South East",
+      "our_region": "South East",
+      "market_id": null,
+      "coord": [
+        52.0629,
+        -1.3408
+      ],
+      "page": 32
+    },
+    {
+      "name": "Bicester",
+      "rent_psf": 11.75,
+      "region": "South East",
+      "our_region": "South East",
+      "market_id": null,
+      "coord": [
+        51.9001,
+        -1.1527
+      ],
+      "page": 32
+    },
+    {
+      "name": "Hemel Hempstead",
+      "rent_psf": 16.0,
+      "region": "South East",
+      "our_region": "South East",
+      "market_id": null,
+      "coord": [
+        51.7526,
+        -0.4526
+      ],
+      "page": 32
+    },
+    {
+      "name": "Dunstable",
+      "rent_psf": 23.0,
+      "region": "South East",
+      "our_region": "South East",
+      "market_id": null,
+      "coord": [
+        51.8862,
+        -0.5215
+      ],
+      "page": 32
+    },
+    {
+      "name": "Swindon",
+      "rent_psf": 12.0,
+      "region": "South East",
+      "our_region": "South East",
+      "market_id": "uk-66",
+      "coord": [
+        51.5558,
+        -1.7797
+      ],
+      "page": 32
+    },
+    {
+      "name": "Didcot",
+      "rent_psf": 11.75,
+      "region": "South East",
+      "our_region": "South East",
+      "market_id": null,
+      "coord": [
+        51.6057,
+        -1.2418
+      ],
+      "page": 32
+    },
+    {
+      "name": "Basingstoke",
+      "rent_psf": 18.0,
+      "region": "South East",
+      "our_region": "South East",
+      "market_id": "uk-10",
+      "coord": [
+        51.2665,
+        -1.0874
+      ],
+      "page": 32
+    },
+    {
+      "name": "Reading",
+      "rent_psf": 20.0,
+      "region": "South East",
+      "our_region": "South East",
+      "market_id": "uk-03",
+      "coord": [
+        51.4543,
+        -0.9781
+      ],
+      "page": 32
+    },
+    {
+      "name": "Crawley",
+      "rent_psf": 23.0,
+      "region": "South East",
+      "our_region": "South East",
+      "market_id": "uk-02",
+      "coord": [
+        51.1092,
+        -0.1872
+      ],
+      "page": 32
+    },
+    {
+      "name": "Ashford",
+      "rent_psf": 12.5,
+      "region": "South East",
+      "our_region": "South East",
+      "market_id": null,
+      "coord": [
+        51.1465,
+        0.8707
+      ],
+      "page": 32
+    },
+    {
+      "name": "Southampton",
+      "rent_psf": 13.0,
+      "region": "South East",
+      "our_region": "South East",
+      "market_id": "uk-26",
+      "coord": [
+        50.9097,
+        -1.4044
+      ],
+      "page": 32
+    },
+    {
+      "name": "Portsmouth",
+      "rent_psf": 10.75,
+      "region": "South East",
+      "our_region": "South East",
+      "market_id": "uk-27",
+      "coord": [
+        50.8198,
+        -1.088
+      ],
+      "page": 32
+    },
+    {
+      "name": "Ipswich",
+      "rent_psf": 10.0,
+      "region": "East of England",
+      "our_region": "East of England",
+      "market_id": "uk-20",
+      "coord": [
+        52.0567,
+        1.1482
+      ],
+      "page": 32
+    },
+    {
+      "name": "Colchester",
+      "rent_psf": 10.0,
+      "region": "East of England",
+      "our_region": "East of England",
+      "market_id": "uk-22",
+      "coord": [
+        51.8959,
+        0.8919
+      ],
+      "page": 32
+    },
+    {
+      "name": "Basildon",
+      "rent_psf": 15.5,
+      "region": "East of England",
+      "our_region": "East of England",
+      "market_id": "uk-25",
+      "coord": [
+        51.5763,
+        0.4896
+      ],
+      "page": 32
+    },
+    {
+      "name": "Stafford",
+      "rent_psf": 12.0,
+      "region": "West Midlands",
+      "our_region": "West Midlands",
+      "market_id": null,
+      "coord": [
+        52.8053,
+        -2.1183
+      ],
+      "page": 34
+    },
+    {
+      "name": "Derby",
+      "rent_psf": 13.0,
+      "region": "East Midlands",
+      "our_region": "East Midlands",
+      "market_id": "uk-33",
+      "coord": [
+        52.9225,
+        -1.4746
+      ],
+      "page": 34
+    },
+    {
+      "name": "Nottingham",
+      "rent_psf": 13.0,
+      "region": "East Midlands",
+      "our_region": "East Midlands",
+      "market_id": "uk-34",
+      "coord": [
+        52.9548,
+        -1.1581
+      ],
+      "page": 34
+    },
+    {
+      "name": "Telford",
+      "rent_psf": 11.75,
+      "region": "West Midlands",
+      "our_region": "West Midlands",
+      "market_id": "uk-30",
+      "coord": [
+        52.6766,
+        -2.4469
+      ],
+      "page": 34
+    },
+    {
+      "name": "Birmingham",
+      "rent_psf": 15.0,
+      "region": "West Midlands",
+      "our_region": "West Midlands",
+      "market_id": "uk-27",
+      "coord": [
+        52.4862,
+        -1.8904
+      ],
+      "page": 34
+    },
+    {
+      "name": "Wolverhampton",
+      "rent_psf": 12.75,
+      "region": "West Midlands",
+      "our_region": "West Midlands",
+      "market_id": null,
+      "coord": [
+        52.5862,
+        -2.1288
+      ],
+      "page": 34
+    },
+    {
+      "name": "Coventry",
+      "rent_psf": 15.0,
+      "region": "West Midlands",
+      "our_region": "West Midlands",
+      "market_id": "uk-29",
+      "coord": [
+        52.4068,
+        -1.5197
+      ],
+      "page": 34
+    },
+    {
+      "name": "Leicester",
+      "rent_psf": 13.0,
+      "region": "East Midlands",
+      "our_region": "East Midlands",
+      "market_id": "uk-31",
+      "coord": [
+        52.6369,
+        -1.1398
+      ],
+      "page": 34
+    },
+    {
+      "name": "Corby",
+      "rent_psf": 12.0,
+      "region": "East Midlands",
+      "our_region": "East Midlands",
+      "market_id": null,
+      "coord": [
+        52.4897,
+        -0.6959
+      ],
+      "page": 34
+    },
+    {
+      "name": "Northampton",
+      "rent_psf": 13.0,
+      "region": "East Midlands",
+      "our_region": "East Midlands",
+      "market_id": "uk-32",
+      "coord": [
+        52.2405,
+        -0.9027
+      ],
+      "page": 34
+    },
+    {
+      "name": "Kettering",
+      "rent_psf": 12.5,
+      "region": "East Midlands",
+      "our_region": "East Midlands",
+      "market_id": null,
+      "coord": [
+        52.398,
+        -0.727
+      ],
+      "page": 34
+    },
+    {
+      "name": "Daventry",
+      "rent_psf": 12.5,
+      "region": "East Midlands",
+      "our_region": "East Midlands",
+      "market_id": null,
+      "coord": [
+        52.2588,
+        -1.1617
+      ],
+      "page": 34
+    },
+    {
+      "name": "Bristol",
+      "rent_psf": 14.5,
+      "region": "South West",
+      "our_region": "South West",
+      "market_id": "uk-60",
+      "coord": [
+        51.4545,
+        -2.5879
+      ],
+      "page": 36
+    },
+    {
+      "name": "Gloucester",
+      "rent_psf": 12.5,
+      "region": "South West",
+      "our_region": "South West",
+      "market_id": "uk-63",
+      "coord": [
+        51.8642,
+        -2.238
+      ],
+      "page": 36
+    },
+    {
+      "name": "Cardiff",
+      "rent_psf": 10.5,
+      "region": "Wales",
+      "our_region": "Wales",
+      "market_id": "uk-68",
+      "coord": [
+        51.4816,
+        -3.1791
+      ],
+      "page": 36
+    },
+    {
+      "name": "Newport",
+      "rent_psf": 9.75,
+      "region": "Wales",
+      "our_region": "Wales",
+      "market_id": "uk-69",
+      "coord": [
+        51.5842,
+        -2.9977
+      ],
+      "page": 36
+    },
+    {
+      "name": "Manchester",
+      "rent_psf": 16.5,
+      "region": "North West",
+      "our_region": "North West",
+      "market_id": "uk-47",
+      "coord": [
+        53.4808,
+        -2.2426
+      ],
+      "page": 38
+    },
+    {
+      "name": "Warrington",
+      "rent_psf": 13.5,
+      "region": "North West",
+      "our_region": "North West",
+      "market_id": "uk-53",
+      "coord": [
+        53.39,
+        -2.597
+      ],
+      "page": 38
+    },
+    {
+      "name": "Liverpool",
+      "rent_psf": 11.5,
+      "region": "North West",
+      "our_region": "North West",
+      "market_id": "uk-48",
+      "coord": [
+        53.4084,
+        -2.9916
+      ],
+      "page": 38
+    },
+    {
+      "name": "Leeds",
+      "rent_psf": 12.0,
+      "region": "Yorkshire & Humber",
+      "our_region": "Yorkshire & Humber",
+      "market_id": "uk-40",
+      "coord": [
+        53.8008,
+        -1.5491
+      ],
+      "page": 38
+    },
+    {
+      "name": "Sheffield",
+      "rent_psf": 11.25,
+      "region": "Yorkshire & Humber",
+      "our_region": "Yorkshire & Humber",
+      "market_id": "uk-41",
+      "coord": [
+        53.3811,
+        -1.4701
+      ],
+      "page": 38
+    },
+    {
+      "name": "Doncaster",
+      "rent_psf": 11.25,
+      "region": "Yorkshire & Humber",
+      "our_region": "Yorkshire & Humber",
+      "market_id": "uk-45",
+      "coord": [
+        53.5228,
+        -1.1285
+      ],
+      "page": 38
+    },
+    {
+      "name": "Hull",
+      "rent_psf": 10.5,
+      "region": "Yorkshire & Humber",
+      "our_region": "Yorkshire & Humber",
+      "market_id": "uk-27",
+      "coord": [
+        53.7457,
+        -0.3367
+      ],
+      "page": 38
+    },
+    {
+      "name": "Newcastle",
+      "rent_psf": 10.5,
+      "region": "North East",
+      "our_region": "North East",
+      "market_id": "uk-46",
+      "coord": [
+        54.9783,
+        -1.6178
+      ],
+      "page": 38
+    },
+    {
+      "name": "Sunderland",
+      "rent_psf": 10.5,
+      "region": "North East",
+      "our_region": "North East",
+      "market_id": "uk-57",
+      "coord": [
+        54.9069,
+        -1.3838
+      ],
+      "page": 38
+    },
+    {
+      "name": "Glasgow",
+      "rent_psf": 12.0,
+      "region": "Scotland",
+      "our_region": "Scotland",
+      "market_id": "uk-71",
+      "coord": [
+        55.8642,
+        -4.2518
+      ],
+      "page": 40
+    },
+    {
+      "name": "Edinburgh",
+      "rent_psf": 15.0,
+      "region": "Scotland",
+      "our_region": "Scotland",
+      "market_id": "uk-73",
+      "coord": [
+        55.9533,
+        -3.1883
+      ],
+      "page": 40
+    }
+  ]
+}

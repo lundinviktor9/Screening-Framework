@@ -1,0 +1,29 @@
+{
+  "schema_name": "assumptions",
+  "description": "Deal-level underwrite assumptions (the dials the analyst sets once per deal). Validated by the underwrite runner. Any value left null falls back to the house default and is flagged in Mode A so the analyst can confirm or override before Mode B computes returns.",
+  "notes": "Mirrors the engine's deal-level human-input fields (C:\\MLI build spec section 12) and the interface contract. Yields/rates/growth are decimals (0.0625 = 6.25%). These are NOT extracted from the tenancy schedule; they are the analyst's pricing view.",
+  "columns": [
+    { "name": "entry_date", "type": "date", "required": true, "default": null, "flag": true, "notes": "Acquisition / cashflow start date. Drives the engine entry-date rewiring." },
+    { "name": "hold_years", "type": "number", "required": true, "default": 4, "flag": true, "notes": "Hold period in years (engine CFO Q26). Exit date = entry + hold. Fractional holds supported." },
+    { "name": "entry_yield", "type": "number", "required": false, "default": null, "flag": true, "notes": "Acquisition NIY (decimal). PRICING DECISION - confirm, do not just take the schedule NIY. If null, the engine uses the per-unit schedule yields." },
+    { "name": "exit_yield", "type": "number", "required": false, "default": 0.0585, "flag": true, "notes": "Exit NIY (decimal). The single biggest value driver. Newbury used 0.0625." },
+    { "name": "rental_growth", "type": "number", "required": false, "default": 0.045, "flag": true, "notes": "Universal annual ERV growth (decimal), anchored to the fixed valuation date so entry-date moves do not change growth magnitude." },
+    { "name": "post_exit_growth", "type": "number", "required": false, "default": 0.03, "flag": true, "notes": "Growth assumed for the next buyer after our exit (two-rate kink). Feeds the Next Buyer CF." },
+    { "name": "exit_basis", "type": "string", "required": false, "default": "passing", "flag": true, "enum": ["passing", "erv"], "notes": "Value the exit on passing rent (conservative house default) or ERV (lifts the exit materially). Offer, do not switch silently." },
+    { "name": "ltv", "type": "number", "required": false, "default": 0.60, "flag": true, "notes": "Loan-to-value (decimal). 0 for an unlevered run." },
+    { "name": "debt_rate", "type": "number", "required": false, "default": null, "flag": true, "notes": "All-in debt rate (decimal, SONIA + margin ~6%). Null = engine default." },
+    { "name": "tax_scenario", "type": "string", "required": false, "default": "asset", "flag": true, "enum": ["asset", "spv", "reit", "reit_exempt"], "notes": "Tax/structure scenario. reit_exempt removes exit CGT and can lift net above unlevered." },
+    { "name": "purchaser_costs", "type": "number", "required": false, "default": 0.068, "flag": false, "notes": "Purchaser's costs (decimal). House default ~6.8%." },
+    { "name": "sales_costs", "type": "number", "required": false, "default": 0.008, "flag": false, "notes": "Sale costs on exit (decimal). House default ~0.8%." },
+    { "name": "void_mths", "type": "number", "required": false, "default": 12, "flag": false, "notes": "Vacant-at-entry re-let void (engine I8). Mid-hold vacate/break re-lets default 9 if the schedule is blank." },
+    { "name": "rent_free_mths", "type": "number", "required": false, "default": 3, "flag": false, "notes": "Vacant-at-entry re-let rent-free (engine I9). Mid-hold default 6 if blank." },
+    { "name": "reletting_capex_psf", "type": "number", "required": false, "default": 25, "flag": false, "notes": "Re-let capex (GBP psf) default on vacate/break units when the schedule is blank." },
+    { "name": "term_certain_mths", "type": "number", "required": false, "default": 60, "flag": false, "notes": "Term certain for re-let leases." },
+    { "name": "letting_fee_pct", "type": "number", "required": false, "default": 0.20, "flag": false, "notes": "Letting fee on ERV applied in the vacant-entry deduction (engine I11)." },
+    { "name": "empty_rates_relief_mths", "type": "number", "required": false, "default": 6, "flag": false, "notes": "Empty-rates relief period before void rates are charged (engine L8)." }
+  ],
+  "flag_fields": [
+    "entry_date", "hold_years", "entry_yield", "exit_yield", "rental_growth",
+    "post_exit_growth", "exit_basis", "ltv", "debt_rate", "tax_scenario"
+  ]
+}

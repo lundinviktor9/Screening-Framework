@@ -1,0 +1,120 @@
+{
+  "_meta": {
+    "description": "Multi-let light industrial (MLI) filter rules for VOA rating list entries",
+    "purpose": "Isolate MLI hereditaments from the full 2-million-record VOA dataset",
+    "source": "VOA Rating List Data Specification, Appendix 2 (SCat codes)",
+    "generated_at": "2026-04-21",
+    "references": {
+      "spec_pdf": "https://voaratinglists.blob.core.windows.net/html/documents/Compiled%20Rating%20List%20and%20Summary%20Valuation%20Data%20Specification.pdf"
+    }
+  },
+  "filter_steps": {
+    "step_1_scat_include": {
+      "description": "Only retain hereditaments with these SCat codes",
+      "codes": [
+        {
+          "scat": "096",
+          "name": "Factories, Workshops and Warehouses (Incl Bakeries & Dairies)",
+          "primary_desc_codes": ["IF", "IF3", "CW"],
+          "rationale": "Core MLI — general-purpose factories, workshops and warehouses. Primary target of small-unit industrial investment."
+        },
+        {
+          "scat": "408",
+          "name": "Business Units",
+          "primary_desc_codes": ["IF4"],
+          "rationale": "Purpose-built small industrial/office units typically 100-500 m². Quintessentially MLI."
+        },
+        {
+          "scat": "994",
+          "name": "Industrial Miscellaneous",
+          "primary_desc_codes": ["IX"],
+          "rationale": "Catch-all for industrial properties not otherwise classified. Small-format occupiers often sit here."
+        }
+      ]
+    },
+    "step_2_scat_exclude": {
+      "description": "Explicitly exclude these SCat codes even if they passed step 1",
+      "codes": [
+        {
+          "scat": "153",
+          "name": "Large Industrials (Over 20,000m²)",
+          "primary_desc_codes": ["IF", "IF3", "IF4"],
+          "rationale": "Large industrial is structurally different from MLI — big-box occupiers, single-tenant. Explicitly named as 'Over 20,000m²' by VOA."
+        },
+        {
+          "scat": "151",
+          "name": "Distribution Warehouses",
+          "primary_desc_codes": ["CW"],
+          "rationale": "Logistics / e-commerce distribution is a different sub-sector. Large-format, single-tenant big-box."
+        },
+        {
+          "scat": "129",
+          "name": "High Tech Warehouses",
+          "primary_desc_codes": ["CW"],
+          "rationale": "Specialist tech warehouses — not general-purpose MLI."
+        },
+        {
+          "scat": "721",
+          "name": "Self-Storage Facility",
+          "primary_desc_codes": ["CW", "CW3"],
+          "rationale": "Self-storage is not an industrial occupier category — it's a retail-adjacent service."
+        },
+        {
+          "scat": "148",
+          "name": "Land Used For Storage",
+          "primary_desc_codes": ["CW1"],
+          "rationale": "Open storage land is not built industrial stock."
+        }
+      ]
+    },
+    "step_3_size_filter": {
+      "description": "Retain only units with GIA under 464 m² (≈ 5,000 sqft)",
+      "threshold_m2": 464,
+      "threshold_sqft": 5000,
+      "measurement_source": "Summary valuations file, record type 01 field 17 (Total Area), when field 28 (Unit of Measurement) = 'GIA'",
+      "handling_of_unknowns": {
+        "missing_floorspace": "Record retained but flagged with size_unverified=true. Counts toward unit_count metric but NOT toward stock_sqft total (since area is unknown).",
+        "non_gia_measurement": "If Unit of Measurement is NIA/GEA/EFA/RCA/OTH, treated as size_unverified since the value can't be directly compared to a 464m² GIA threshold.",
+        "rationale": "VOA floorspace coverage is approximately 80%. Discarding the remaining 20% would bias results toward better-documented markets. We retain records but flag them."
+      }
+    },
+    "step_4_active_only": {
+      "description": "Retain only currently-live entries on the 2026 list",
+      "rules": [
+        {
+          "check": "rateable_value_not_null",
+          "field": "list entries field 18 (Rateable Value)",
+          "rationale": "Per VOA spec: deleted hereditaments appear as proxy records with null RV. These are not true list entries and must be excluded."
+        },
+        {
+          "check": "current_to_date_empty_or_future",
+          "field": "list entries field 28 (Current To Date)",
+          "rule": "Drop if Current To Date is non-null AND < 2026-04-01",
+          "rationale": "If the entry ceased to be current before the 2026 list compilation date, it's historic."
+        }
+      ]
+    }
+  },
+  "metrics_derivation": {
+    "voa_mli_stock_sqft": {
+      "formula": "sum of GIA (converted to sqft) across MLI-filtered records in market",
+      "include_size_unverified": false,
+      "coverage_note": "Reports coverage % so users see how much of the market is documented"
+    },
+    "voa_mli_unit_count": {
+      "formula": "count of MLI-filtered hereditaments in market",
+      "include_size_unverified": true,
+      "rationale": "Unit count is about market depth, not stock sqft — we want all MLI units in."
+    },
+    "voa_mli_concentration_pct": {
+      "formula": "(count of industrial units <464m² GIA) / (count of all industrial units, no size filter, same SCat include set minus exclusions) × 100",
+      "minimum_coverage_threshold": 60,
+      "rationale": "Measures market character — high % indicates MLI-dominated structure, favourable for MLI investors. Flagged as insufficient data below 60% floorspace coverage."
+    },
+    "voa_mli_new_supply": {
+      "formula": "(2026 MLI unit_count) - (2023 MLI unit_count)",
+      "requires_2023_file": true,
+      "rationale": "Net change in MLI unit count over 3 years. Positive = new supply, negative = demolition/change of use. Rating logic: less net new supply is better for MLI investors (rent tension)."
+    }
+  }
+}

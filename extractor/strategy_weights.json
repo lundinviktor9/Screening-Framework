@@ -1,0 +1,43 @@
+{
+  "description": "Pillar weights by deal strategy for fit score calculation. Customize weights to emphasize strategy-specific priorities.",
+  "default": {
+    "Supply": 0.17,
+    "Demand": 0.17,
+    "Connectivity": 0.17,
+    "Labour": 0.17,
+    "Rents & Yields": 0.16,
+    "Strategic / Risk": 0.16
+  },
+  "MLI": {
+    "Supply": 0.15,
+    "Demand": 0.30,
+    "Connectivity": 0.10,
+    "Labour": 0.05,
+    "Rents & Yields": 0.35,
+    "Strategic / Risk": 0.05
+  },
+  "Big Box": {
+    "Supply": 0.25,
+    "Demand": 0.20,
+    "Connectivity": 0.25,
+    "Labour": 0.05,
+    "Rents & Yields": 0.15,
+    "Strategic / Risk": 0.10
+  },
+  "Office": {
+    "Supply": 0.15,
+    "Demand": 0.25,
+    "Connectivity": 0.20,
+    "Labour": 0.15,
+    "Rents & Yields": 0.15,
+    "Strategic / Risk": 0.10
+  },
+  "Net Lease": {
+    "Supply": 0.10,
+    "Demand": 0.15,
+    "Connectivity": 0.10,
+    "Labour": 0.10,
+    "Rents & Yields": 0.40,
+    "Strategic / Risk": 0.15
+  }
+}

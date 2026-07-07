@@ -1,0 +1,112 @@
+{
+  "generated_at": "2026-04-03",
+  "source": "SEPA Flood Map API + NI manual estimate",
+  "metrics_covered": [
+    "M58"
+  ],
+  "records": [
+    {
+      "market_id": "uk-71",
+      "market": "Greater Glasgow",
+      "region": "Scotland",
+      "metric_id": "M58",
+      "pillar": "Strategic / Risk",
+      "value": 5,
+      "unit": "score 1-5",
+      "geographic_level": "market",
+      "source_url": "https://map.sepa.org.uk/floodmap/rest/services",
+      "source_name": "SEPA Flood Map",
+      "source_date": "2026-04-03",
+      "scrape_date": "2026-04-03",
+      "status": "VERIFIED",
+      "raw_text": "Flood risk: No flood zone intersected"
+    },
+    {
+      "market_id": "uk-72",
+      "market": "Motherwell",
+      "region": "Scotland",
+      "metric_id": "M58",
+      "pillar": "Strategic / Risk",
+      "value": 5,
+      "unit": "score 1-5",
+      "geographic_level": "market",
+      "source_url": "https://map.sepa.org.uk/floodmap/rest/services",
+      "source_name": "SEPA Flood Map",
+      "source_date": "2026-04-03",
+      "scrape_date": "2026-04-03",
+      "status": "VERIFIED",
+      "raw_text": "Flood risk: No flood zone intersected"
+    },
+    {
+      "market_id": "uk-73",
+      "market": "Edinburgh",
+      "region": "Scotland",
+      "metric_id": "M58",
+      "pillar": "Strategic / Risk",
+      "value": 5,
+      "unit": "score 1-5",
+      "geographic_level": "market",
+      "source_url": "https://map.sepa.org.uk/floodmap/rest/services",
+      "source_name": "SEPA Flood Map",
+      "source_date": "2026-04-03",
+      "scrape_date": "2026-04-03",
+      "status": "VERIFIED",
+      "raw_text": "Flood risk: No flood zone intersected"
+    },
+    {
+      "market_id": "uk-74",
+      "market": "Aberdeen",
+      "region": "Scotland",
+      "metric_id": "M58",
+      "pillar": "Strategic / Risk",
+      "value": 5,
+      "unit": "score 1-5",
+      "geographic_level": "market",
+      "source_url": "https://map.sepa.org.uk/floodmap/rest/services",
+      "source_name": "SEPA Flood Map",
+      "source_date": "2026-04-03",
+      "scrape_date": "2026-04-03",
+      "status": "VERIFIED",
+      "raw_text": "Flood risk: No flood zone intersected"
+    },
+    {
+      "market_id": "uk-75",
+      "market": "Dundee",
+      "region": "Scotland",
+      "metric_id": "M58",
+      "pillar": "Strategic / Risk",
+      "value": 5,
+      "unit": "score 1-5",
+      "geographic_level": "market",
+      "source_url": "https://map.sepa.org.uk/floodmap/rest/services",
+      "source_name": "SEPA Flood Map",
+      "source_date": "2026-04-03",
+      "scrape_date": "2026-04-03",
+      "status": "VERIFIED",
+      "raw_text": "Flood risk: No flood zone intersected"
+    },
+    {
+      "market_id": "uk-76",
+      "market": "Belfast",
+      "region": "Northern Ireland",
+      "metric_id": "M58",
+      "pillar": "Strategic / Risk",
+      "value": 4,
+      "unit": "score 1-5",
+      "geographic_level": "market",
+      "source_url": "https://map.sepa.org.uk/floodmap/rest/services",
+      "source_name": "Manual estimate (NI flood maps)",
+      "source_date": "2026-04-03",
+      "scrape_date": "2026-04-03",
+      "status": "VERIFIED",
+      "raw_text": "Flood risk: Default: Low risk (no free NI flood API; based on published NI flood maps)"
+    }
+  ],
+  "warnings": [],
+  "summary": {
+    "total_records": 6,
+    "records_with_value": 6,
+    "records_missing": 0,
+    "warnings_count": 0
+  }
+}

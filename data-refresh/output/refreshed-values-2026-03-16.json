@@ -1,0 +1,255 @@
+{
+  "generatedAt": "2026-03-16T00:20:56.118Z",
+  "sources": {
+    "nomis": {
+      "skipped": true,
+      "dataset": "NM_568_1 — Census 2021 Distance Travelled to Work"
+    },
+    "voa": {
+      "skipped": true,
+      "url": "https://voaratinglists.blob.core.windows.net/html/compiledlist-data-england.zip"
+    },
+    "landRegistry": {
+      "skipped": true,
+      "note": "Property type \"O\" (Other/commercial) transactions — 5yr CAGR of median price per LA"
+    }
+  },
+  "markets": {
+    "uk-01": {
+      "marketName": "Greater London"
+    },
+    "uk-02": {
+      "marketName": "Crawley"
+    },
+    "uk-03": {
+      "marketName": "Reading"
+    },
+    "uk-04": {
+      "marketName": "Maidstone"
+    },
+    "uk-05": {
+      "marketName": "South Hampshire"
+    },
+    "uk-06": {
+      "marketName": "Milton Keynes"
+    },
+    "uk-07": {
+      "marketName": "Slough"
+    },
+    "uk-08": {
+      "marketName": "Hastings"
+    },
+    "uk-09": {
+      "marketName": "High Wycombe"
+    },
+    "uk-10": {
+      "marketName": "Basingstoke"
+    },
+    "uk-11": {
+      "marketName": "Brighton & Hove"
+    },
+    "uk-12": {
+      "marketName": "Medway Towns"
+    },
+    "uk-13": {
+      "marketName": "Eastbourne"
+    },
+    "uk-14": {
+      "marketName": "Farnborough/Aldershot"
+    },
+    "uk-15": {
+      "marketName": "Oxford"
+    },
+    "uk-16": {
+      "marketName": "Thanet"
+    },
+    "uk-17": {
+      "marketName": "Norwich"
+    },
+    "uk-18": {
+      "marketName": "Chelmsford"
+    },
+    "uk-19": {
+      "marketName": "Peterborough"
+    },
+    "uk-20": {
+      "marketName": "Ipswich"
+    },
+    "uk-21": {
+      "marketName": "Cambridge"
+    },
+    "uk-22": {
+      "marketName": "Colchester"
+    },
+    "uk-23": {
+      "marketName": "Bedford"
+    },
+    "uk-24": {
+      "marketName": "Luton"
+    },
+    "uk-25": {
+      "marketName": "Basildon"
+    },
+    "uk-26": {
+      "marketName": "Southend-on-Sea"
+    },
+    "uk-27": {
+      "marketName": "Birmingham/Solihull"
+    },
+    "uk-28": {
+      "marketName": "Black Country"
+    },
+    "uk-29": {
+      "marketName": "Coventry"
+    },
+    "uk-30": {
+      "marketName": "Telford"
+    },
+    "uk-31": {
+      "marketName": "Leicester"
+    },
+    "uk-32": {
+      "marketName": "Northampton"
+    },
+    "uk-33": {
+      "marketName": "Derby"
+    },
+    "uk-34": {
+      "marketName": "Nottingham"
+    },
+    "uk-35": {
+      "marketName": "Stoke-on-Trent"
+    },
+    "uk-36": {
+      "marketName": "Chesterfield"
+    },
+    "uk-37": {
+      "marketName": "Mansfield"
+    },
+    "uk-38": {
+      "marketName": "Lincoln"
+    },
+    "uk-39": {
+      "marketName": "Burton-upon-Trent"
+    },
+    "uk-40": {
+      "marketName": "West Yorkshire (Leeds)"
+    },
+    "uk-41": {
+      "marketName": "Sheffield"
+    },
+    "uk-42": {
+      "marketName": "Grimsby"
+    },
+    "uk-43": {
+      "marketName": "York"
+    },
+    "uk-44": {
+      "marketName": "Barnsley/Dearne Valley"
+    },
+    "uk-45": {
+      "marketName": "Doncaster"
+    },
+    "uk-46": {
+      "marketName": "Kingston upon Hull"
+    },
+    "uk-47": {
+      "marketName": "Greater Manchester"
+    },
+    "uk-48": {
+      "marketName": "Liverpool"
+    },
+    "uk-49": {
+      "marketName": "Preston"
+    },
+    "uk-50": {
+      "marketName": "Wigan"
+    },
+    "uk-51": {
+      "marketName": "Burnley"
+    },
+    "uk-52": {
+      "marketName": "Blackburn"
+    },
+    "uk-53": {
+      "marketName": "Warrington"
+    },
+    "uk-54": {
+      "marketName": "Accrington/Rossendale"
+    },
+    "uk-55": {
+      "marketName": "Blackpool"
+    },
+    "uk-56": {
+      "marketName": "Birkenhead"
+    },
+    "uk-57": {
+      "marketName": "Sunderland"
+    },
+    "uk-58": {
+      "marketName": "Tyneside"
+    },
+    "uk-59": {
+      "marketName": "Teesside"
+    },
+    "uk-60": {
+      "marketName": "Bristol"
+    },
+    "uk-61": {
+      "marketName": "Cheltenham"
+    },
+    "uk-62": {
+      "marketName": "Bournemouth/Poole"
+    },
+    "uk-63": {
+      "marketName": "Gloucester"
+    },
+    "uk-64": {
+      "marketName": "Exeter"
+    },
+    "uk-65": {
+      "marketName": "Plymouth"
+    },
+    "uk-66": {
+      "marketName": "Swindon"
+    },
+    "uk-67": {
+      "marketName": "Torquay/Paignton"
+    },
+    "uk-68": {
+      "marketName": "Cardiff"
+    },
+    "uk-69": {
+      "marketName": "Newport"
+    },
+    "uk-70": {
+      "marketName": "Swansea"
+    },
+    "uk-71": {
+      "marketName": "Greater Glasgow"
+    },
+    "uk-72": {
+      "marketName": "Motherwell"
+    },
+    "uk-73": {
+      "marketName": "Edinburgh"
+    },
+    "uk-74": {
+      "marketName": "Aberdeen"
+    },
+    "uk-75": {
+      "marketName": "Dundee"
+    },
+    "uk-76": {
+      "marketName": "Belfast"
+    }
+  },
+  "warnings": [],
+  "summary": {
+    "m7Updated": 0,
+    "m28Updated": 0,
+    "m46Updated": 0,
+    "m54Updated": 0,
+    "totalWarnings": 0
+  }
+}

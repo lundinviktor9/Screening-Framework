@@ -1,0 +1,54 @@
+{
+  "_meta": {
+    "description": "Points of interest overlay for Brunswick Screening Framework map",
+    "version": 1,
+    "generated": "2026-04-21",
+    "source_notes": {
+      "ports": "Top-tonnage UK ports (DfT Maritime Statistics, manually curated).",
+      "airports": "UK cargo-capable airports (CAA / operator published data).",
+      "motorway_junctions": "Major strategic interchanges (Highways England SRN). Approximate coordinates of junction centres."
+    }
+  },
+  "ports": [
+    { "name": "Felixstowe",                 "coord": [51.955, 1.317],   "detail": "UK's largest container port — 36% of UK containers" },
+    { "name": "London Gateway",             "coord": [51.510, 0.479],   "detail": "DP World deep-water container terminal + logistics park" },
+    { "name": "Southampton",                "coord": [50.893, -1.404],  "detail": "Container + automotive + cruise (~2M TEU)" },
+    { "name": "Liverpool (Peel Ports)",     "coord": [53.451, -3.013],  "detail": "Liverpool2 deep-water container terminal" },
+    { "name": "Tilbury",                    "coord": [51.467, 0.365],   "detail": "Multi-purpose port + construction materials" },
+    { "name": "Immingham",                  "coord": [53.627, -0.200],  "detail": "UK's largest port by tonnage (bulk + liquid)" },
+    { "name": "Hull",                       "coord": [53.746, -0.333],  "detail": "Ro-ro + container + Siemens wind factory" },
+    { "name": "Grangemouth",                "coord": [56.018, -3.717],  "detail": "Scotland's main container port" },
+    { "name": "Bristol (Avonmouth/Portbury)", "coord": [51.503, -2.712], "detail": "Ro-ro + bulk + distribution hub (SW England)" },
+    { "name": "Teesport",                   "coord": [54.611, -1.146],  "detail": "Bulk + container, Teesside Freeport" },
+    { "name": "Dover",                      "coord": [51.126, 1.336],   "detail": "Europe's busiest ferry / lorry port" },
+    { "name": "Belfast",                    "coord": [54.614, -5.906],  "detail": "Northern Ireland gateway (container + ro-ro)" }
+  ],
+  "airports": [
+    { "name": "East Midlands Airport (EMA)",  "coord": [52.831, -1.328], "detail": "UK's #1 dedicated cargo airport (DHL, UPS, Royal Mail)" },
+    { "name": "Heathrow",                     "coord": [51.470, -0.454], "detail": "UK's largest airport — c.1.7M tonnes freight/yr" },
+    { "name": "Stansted",                     "coord": [51.885, 0.235],  "detail": "London's freight airport (FedEx, Titan)" },
+    { "name": "Manchester",                   "coord": [53.354, -2.275], "detail": "North-West freight hub (~110k tonnes/yr)" },
+    { "name": "Birmingham",                   "coord": [52.454, -1.748], "detail": "Midlands cargo + passenger" },
+    { "name": "Glasgow",                      "coord": [55.866, -4.433], "detail": "Scotland's main cargo airport" },
+    { "name": "Belfast International",        "coord": [54.657, -6.216], "detail": "NI cargo (DHL, Amazon)" },
+    { "name": "Luton",                        "coord": [51.874, -0.368], "detail": "London area cargo + passenger" },
+    { "name": "Doncaster Sheffield",          "coord": [53.475, -1.010], "detail": "South Yorkshire cargo-capable airport" },
+    { "name": "Cardiff",                      "coord": [51.395, -3.343], "detail": "Wales' main cargo airport" }
+  ],
+  "motorway_junctions": [
+    { "name": "M25 / M1 (J6a)",         "coord": [51.731, -0.239], "detail": "North-West London → M1 North" },
+    { "name": "M25 / M4 (J15)",         "coord": [51.515, -0.522], "detail": "West London → M4 Thames Valley" },
+    { "name": "M25 / M3 (J12)",         "coord": [51.308, -0.628], "detail": "South-West London → M3 Southampton" },
+    { "name": "M25 / M20 (J3)",         "coord": [51.337, 0.215],  "detail": "South-East London → Dover" },
+    { "name": "M25 / M11 (J27)",        "coord": [51.676, 0.147],  "detail": "North-East London → Stansted / Cambridge" },
+    { "name": "M6 / M62 (Croft)",       "coord": [53.393, -2.542], "detail": "Warrington — M6 / Manchester-Leeds corridor" },
+    { "name": "M1 / M18 (Tinsley)",     "coord": [53.413, -1.390], "detail": "Sheffield — M1 / South Yorkshire" },
+    { "name": "M5 / M42 (J4a/T1)",      "coord": [52.396, -1.923], "detail": "South of Birmingham — Toll + West/North" },
+    { "name": "M6 / M5 (Oxley)",        "coord": [52.567, -2.080], "detail": "Strategic Midlands North/South split" },
+    { "name": "M1 / A14 (Catthorpe)",   "coord": [52.382, -1.180], "detail": "M1 / A14 / M6 — the 'golden triangle' apex" },
+    { "name": "M56 / M53 (Runcorn)",    "coord": [53.337, -2.762], "detail": "Manchester–Liverpool corridor" },
+    { "name": "M62 / M1 (Lofthouse)",   "coord": [53.732, -1.506], "detail": "Leeds — M1 / Manchester-Hull" },
+    { "name": "M40 / M42 (Warwick)",    "coord": [52.215, -1.670], "detail": "Oxford-Birmingham corridor" },
+    { "name": "M8 / M73 (Glasgow)",     "coord": [55.862, -4.129], "detail": "Central Scotland motorway hub" }
+  ]
+}
